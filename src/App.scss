@@ -61,9 +61,12 @@
 
 
 .MainSplashContainer{
+  // border: 1px solid green;
   height:70vh;
-  width: 70%;
-  margin:9% 0;
+  width: 100%;
+  // margin:9% 0;
+  padding: 4rem 0 5rem;
+  z-index: 1;
   
 
   .Splash_Container{
@@ -114,3 +117,29 @@
     width: 100%;
   }
 }
+
+.splash_text_container{
+  // border:2px solid green;
+  background-color: white;
+  // position: relative;
+  // width: 100%;
+  // padding: 3rem;
+  z-index: 2;
+
+  .splash_text{
+    padding:3rem;
+    margin: 2rem 0;
+    font-family: var(--splash-body-1);
+    font-size: 1.6rem;
+    position: relative;
+    top: -3rem;
+    z-index: 3;
+    
+  }
+}
+
+.nav_menu{
+  background-color: green($color: #000000);
+}
+
+

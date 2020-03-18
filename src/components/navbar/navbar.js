@@ -17,8 +17,8 @@ const useStyles = makeStyles(theme => ({
     menuButton: {
       marginRight: theme.spacing(2),
     },
-    menuText: {
-      fontSize: "180%",
+    menuItem: {
+      // fontSize: "180%",
     }
 }));
   
@@ -49,7 +49,8 @@ export function NavBar() {
             anchorEl={anchorElement}
             keepMounted
             open={Boolean(anchorElement)}
-            onClose={handleClose}>
+            onClose={handleClose}
+            classes={{ label: ""}}>
               
             <MenuItem onClick={handleClose} to="/">Projects</MenuItem>
             <MenuItem onClick={handleClose} to="/about">About Me</MenuItem>
