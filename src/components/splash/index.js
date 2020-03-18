@@ -19,17 +19,19 @@ const useStyles = makeStyles(theme => ({
 
 export function MainSplash() {
 
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
+  return (
     <div className="MainSplashContainer">
         <Container maxWidth="xl" className="Splash_Container">
             <Grid container spacing={3}>
+
                 <Grid item xs={12}>
                   <h1 id="Splash_Hello">HELLO!</h1>
                   <h3 id="Splash_Message"> I'M DEREK</h3>
                   <h3 id="Splash_Message2"> HOW CAN I HELP?</h3>
                 </Grid>
+
                 <Grid item l={6} className="splash_nav_container" justify = "right">
                   <Link href="#" id="splash_nav">CODE</Link>
                   <Link href="#" id="splash_nav">MUSIC</Link>
@@ -37,13 +39,12 @@ export function MainSplash() {
                 </Grid>
             </Grid>
         </Container>
+
         <Container maxWidth="xl">
             <Grid>
-          <p>Enim ex nulla occaecat magna consequat nisi et qui sint magna. Elit duis irure esse quis enim ullamco incididunt exercitation fugiat fugiat laborum. Velit duis esse ullamco veniam anim fugiat pariatur sunt minim do. Proident non sint veniam anim enim deserunt commodo magna qui excepteur ad consequat voluptate.</p>
-
+              <p>Enim ex nulla occaecat magna consequat nisi et qui sint magna. Elit duis irure esse quis enim ullamco incididunt exercitation fugiat fugiat laborum. Velit duis esse ullamco veniam anim fugiat pariatur sunt minim do. Proident non sint veniam anim enim deserunt commodo magna qui excepteur ad consequat voluptate.</p>
             </Grid>
-
         </Container>
     </div>
-				);
+  );
 };
