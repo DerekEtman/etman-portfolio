@@ -68,19 +68,17 @@
   padding: 4rem 0 5rem;
   z-index: 1;
   
-
   .Splash_Container{
     text-align: right;
     padding: 4% 0;
   }
-
 
   #Splash_Hello{
     font-size: 8.6rem;
     font-family: var(--splash-header-1);
     font-weight: normal;
     color: var(--black);
-    text-shadow: 3px 2px #646464b4;
+    // text-shadow: 3px 2px #646464b4;
     margin:0;
   }
 
@@ -89,7 +87,7 @@
     font-family: var(--splash-header-1);
     font-weight: normal;
     color: var(--black);
-    text-shadow: 3px 2px #646464b4;
+    // text-shadow: 3px 2px #646464b4;
 
     margin:0;
   }
@@ -99,9 +97,10 @@
     font-family: var(--splash-header-1);
     font-weight: normal;
     color: var(--black);
-    text-shadow: 3px 2px #646464b4;
+    // text-shadow: 3px 2px #646464b4;
     margin:0;
-    border-bottom: 3px solid black;
+    border-bottom: 8px double var(--black);
+    border-bottom-right-radius: 10px;
   }
 
   #splash_nav{
@@ -109,21 +108,56 @@
     color: var(--black);
     font-family: var(--splash-body-1);
     font-weight: normal;
-    padding:1.8rem 3rem;
+    padding:2rem 3rem;
     text-align: center;
   }
 
   .splash_nav_container{
     width: 100%;
   }
+
+  @media only screen and (max-width:1372px) {
+    #Splash_Hello{
+      font-size: 6.4rem;
+    }
+    #Splash_Message{
+      font-size: 7.2rem;
+    }
+    #Splash_Message2{
+      font-size: 6.4rem;
+    }
+    #splash_nav{
+      font-size: 4rem;
+    }
+  }
+
+  @media only screen and (max-width:1072px) {
+    #Splash_Hello{
+      font-size: 5.3rem;
+    }
+    #Splash_Message{
+      font-size: 7.2rem;
+    }
+    #Splash_Message2{
+      font-size: 5.3rem;
+    }
+  }
+
+  @media only screen and (max-width:500px) {
+    #Splash_Hello{
+      font-size: 5.3rem;
+    }
+    #Splash_Message{
+      font-size: 6rem;
+    }
+    #Splash_Message2{
+      font-size: 4.7rem;
+    }
+  }
 }
 
 .splash_text_container{
-  // border:2px solid green;
   background-color: white;
-  // position: relative;
-  // width: 100%;
-  // padding: 3rem;
   z-index: 2;
 
   .splash_text{

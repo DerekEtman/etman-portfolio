@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -18,7 +19,11 @@ const useStyles = makeStyles(theme => ({
       marginRight: theme.spacing(2),
     },
     menuItem: {
-      // fontSize: "180%",
+      fontSize: "1.6rem",
+      padding: "1rem 3rem"
+    },
+    menuText: {
+      
     }
 }));
   
@@ -52,9 +57,12 @@ export function NavBar() {
             onClose={handleClose}
             classes={{ label: ""}}>
               
-            <MenuItem onClick={handleClose} to="/">Projects</MenuItem>
-            <MenuItem onClick={handleClose} to="/about">About Me</MenuItem>
-            <MenuItem onClick={handleClose}>Contact Me</MenuItem>
+            <MenuItem className={classes.menuItem} onClick={handleClose} component={Link} to="/"> Home</MenuItem>
+            <MenuItem className={classes.menuItem} onClick={handleClose} component={Link} to="/sound">Sound</MenuItem>
+            <MenuItem className={classes.menuItem} onClick={handleClose} component={Link} to="/code">Code Projects</MenuItem>
+            {/* <MenuItem className={classes.menuItem} onClick={handleClose} component={Link} to="/about">About Me</MenuItem> */}
+            <MenuItem className={classes.menuItem} onClick={handleClose} component={Link} to="/about">About Me</MenuItem>
+            <MenuItem className={classes.menuItem} onClick={handleClose} component={Link} to="/contact" >Contact Me</MenuItem>
           </Menu>
 
           <Typography variant="h6" color="inherit" className={classes.menuText}>
