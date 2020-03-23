@@ -21,7 +21,7 @@
 }
 .App {
   text-align: center;
-  background-color: var(--yellow);
+  // background-color: var(--yellow);
 }
 
 .App-logo {
@@ -67,6 +67,7 @@
   // margin:9% 0;
   padding: 4rem 0 5rem;
   z-index: 1;
+  background-color: var(--yellow);
   
   .Splash_Container{
     text-align: right;
@@ -174,6 +175,10 @@
 
 .nav_menu{
   background-color: green($color: #000000);
+}
+
+.code_home{
+  // background-color: black;
 }
 
 
