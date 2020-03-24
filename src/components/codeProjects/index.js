@@ -54,18 +54,27 @@ const testData = [
 ];
 
 const styles = makeStyles({
+	root: {
+		backgroundColor:"grey",
+
+	},
+
 	media_container: {
 		width:"90%",
 		height:"100%",
 		margin:"0 auto",
-		// border:"1px solid red"
+		flexGrow:"1",
+		border:"1px solid red"
 	},
 	code_home_header: {
 		// backgroundColor:"yellow",
 		font:"white",
 		height:"100",
-		margin:"1rem auto"
-	}
+		margin:"1rem auto",
+	},
+	code_header: {
+		border:"1px solid yellow"
+	},
 
 });
 
@@ -74,15 +83,15 @@ export default function codePage() {
 	const classes = styles();
 
 	return (
-		<div className="code_home">
+		<div className={classes.root}>
 		<Container maxWidth="LG">
 			<div className={classes.code_home_header}>
-				<h1>Code Home Gallery</h1>
+				<h1 className={classes.code_header}>Code Home Gallery</h1>
 			</div>
 
 			<div className={classes.media_container}>
-				<Grid container spacing={1} xl={12} >
-					<Grid item xs={"auto"} container="true">
+				<Grid container spacing={2}   direction="row" justify="center" alignItems="center">
+					<Grid item lg={12} xs={6} sm={3} container="true">
 						{testData.map(project => {
 							return (
 								<ProjectCard

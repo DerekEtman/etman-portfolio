@@ -34,13 +34,13 @@ export function MainSplash() {
 							<h3 id="Splash_Message"> I'M DEREK</h3>
 							<h3 id="Splash_Message2"> HOW CAN I HELP?</h3>
 							<Grid item l={12} className="splash_nav_container" justify="right">
-								<Link href="/code" id="splash_nav">
+								<Link href="/code" id="splash_nav" className="splash_link">
 									CODE
 								</Link>
-								<Link href="/sound" id="splash_nav">
+								<Link href="/sound" id="splash_nav" className="splash_link">
 									AUDIO
 								</Link>
-								<Link href="/about" id="splash_nav">
+								<Link href="/about" id="splash_nav" className="splash_link">
 									MORE
 								</Link>
 							</Grid>
