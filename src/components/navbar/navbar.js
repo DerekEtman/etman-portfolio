@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Menu, MenuItem } from "@material-ui/core";
+import { Menu, MenuItem, List, ListItem, Divider,ListItemIcon,ListItemText, Toolbar, Typography,AppBar, IconButton  } from "@material-ui/core";
+import {InboxIcon,MailIcon} from '@material-ui/icons/MoveToInbox';
+
 import logo from "./assets/Derek-Logo-black-full-1.png";
+
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1
 	},
 	menuButton: {
-		marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
+    // width: 120,
+    // height: 120,
+    // padding: 30,
 	},
 	menuItem: {
 		fontSize: "1.6rem",
@@ -24,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   menuText: {},
   logo_wrapper:{
     width:"auto",
-    maxWidth:"25%",
+    maxWidth:"300px",
     display:"flex",
     justifyContent:"flex-start"
   },
@@ -32,12 +35,33 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "50%",
     margin:"1rem 0",
     
-	}
+  },
+  list: {
+    width: 250,
+  },
+  fullList: {
+    width: 'auto',
+  },
 }));
 
 export function NavBar() {
-	const [anchorElement, setAnchorElement] = useState(null);
+  const [anchorElement, setAnchorElement] = useState(null);
+  const [state, setState] = useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  })
 
+
+  const toggleDrawer = (anchor, open) => event =>{
+    if(event && event.type ==='keydown' && (event.key === 'Tab' || event.key ==='shift')) {
+      return;
+    }
+    setState({...state,[anchor]: open});
+  }
+
+  
 	const handleClick = e => {
 		setAnchorElement(e.currentTarget);
 	};
@@ -46,7 +70,36 @@ export function NavBar() {
 		setAnchorElement(null);
 	};
 
-	const classes = useStyles();
+  const classes = useStyles();
+  
+  // const list = anchor => (
+  //   <div
+  //     className={clsx(classes.list, {
+  //       [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+  //     })}
+  //     role="presentation"
+  //     onClick={toggleDrawer(anchor, false)}
+  //     onKeyDown={toggleDrawer(anchor, false)}
+  //   >
+  //     <List>
+  //       {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+  //         <ListItem button key={text}>
+  //           <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+  //           <ListItemText primary={text} />
+  //         </ListItem>
+  //       ))}
+  //     </List>
+  //     <Divider />
+  //     <List>
+  //       {['All mail', 'Trash', 'Spam'].map((text, index) => (
+  //         <ListItem button key={text}>
+  //           <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+  //           <ListItemText primary={text} />
+  //         </ListItem>
+  //       ))}
+  //     </List>
+  //   </div>
+  // );
 
 	return (
 		<div className={classes.root}>
@@ -57,10 +110,12 @@ export function NavBar() {
 						className={classes.menuButton}
 						color="inherit"
 						aria-label="menu"
-						onClick={handleClick}
+            onClick={handleClick}
 					>
-						<MenuIcon />
+						<MenuIcon style={{fontSize:25}}/>
 					</IconButton>
+
+          
 
 					<Menu
 						anchorEl={anchorElement}
