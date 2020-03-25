@@ -9,15 +9,29 @@ import derek_leaning from "./images/Leaning_no_background_bw.png";
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		flexGrow: 1
+		flexGrow: 1,
+		overflow:"hidden"
 	},
 	paper: {
 		padding: theme.spacing(2),
 		textAlign: "center",
 		color: theme.palette.text.secondary
 	},
+	splash_image_wrapper: {
+		// maxWidth:"500px",
+		maxWidth:"75%",
+		overflow:"hidden",
+		padding:"0 !important",
+	},
+	splash_image: {
+		padding:"0",
+		animation:' kenburns-top-left 30s ease-out both',
+		'-webkit-animation': 'kenburns-top-left 10s ease-out both'
+
+
+	},
 	splash_text: {
-		padding: "5rem"
+		padding: "5rem",
 	}
 }));
 
@@ -46,8 +60,8 @@ export function MainSplash() {
 							</Grid>
 						</Grid>
 
-						<Grid item xs={5}>
-							<img src={derek_leaning} />
+						<Grid className={classes.splash_image_wrapper} item xs={5}>
+							<img className={classes.splash_image} src={derek_leaning} />
 						</Grid>
 					</Grid>
 				</Container>
