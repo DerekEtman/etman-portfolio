@@ -17,7 +17,8 @@ const testData = [
 		name: "MemeFlyAi",
 		project_brief:
 			"Collaborated with a Data Science team to create a website for a Neural Network Meme generator.",
-		project_info: `• Collaborated with a Data Science team to create a website for a Neural Network Meme generator\n\n• Worked on a team of six developers to create a fully authenticated online image text editor, backed by MongoDB, with a React and FabricJS frontend\n• Handled delegation of tasks and breakdown of product releases over a 2+ month period.`,
+		project_info: `• Collaborated with a Data Science team to create a website for a Neural Network Meme generator\n• Worked on a team of six developers to create a fully authenticated online image text editor, backed by MongoDB, with a React and FabricJS frontend\n• Handled delegation of tasks and breakdown of product releases over a 2+ month period.`,
+		tech_stack:[],
 		project_url: "https://www.memeflyai.com/",
 		git_repo: "https://github.com/Lambda-School-Labs/memefly-fe.git"
 	},
@@ -28,7 +29,7 @@ const testData = [
 		project_brief:
 			"Collaborated with a Data Science team to create a website that compiled and displayed the most dangerous intersections in Los Angeles.",
 		project_info:
-			"• Collaborated with a Data Science team to create a website that compiled and displayed the most dangerous intersections in Los Angeles.• Built and deployed a Java application using Spring framework API following the REST architectural pattern with OAuth2 authentication.• Migrated from H2 to PostGres using a seeding script to generate default data.• Created user docs with swagger.• Ensured stable code using JUnit to write unit tests.",
+			`• Collaborated with a Data Science team to create a website that compiled and displayed the most dangerous intersections in Los Angeles.\n• Built and deployed a Java application using Spring framework API following the REST architectural pattern with OAuth2 authentication.\n• Migrated from H2 to PostGres using a seeding script to generate default data.• Created user docs with swagger.\n• Ensured stable code using JUnit to write unit tests.`,
 		project_url: "https://front-end.pedroprieto.now.sh/",
 		git_repo: "https://github.com/Safe-Routes-Finders/Back-End"
 	},
@@ -39,7 +40,7 @@ const testData = [
 		project_brief:
 			"Collaborated with a Data Science team to create a blood glucose predictor for diabetics.",
 		project_info:
-			"• Collaborated with a Data Science team to create a blood glucose predictor for diabetics.			• Represented the front end web team that consisted of two Senior. Developers in daily meetings.			• Designed website and logo, mocked out and helped to implement the UX/UI of the application.			• Helped build React website with oAuth2 authentication, using Formik to create login and registration forms.			• Ensured routes were properly installed to show top level pages as well as nested views.			• Proposed and built out food nutrition finder based on USFDA nutrition API..",
+			"• Collaborated with a Data Science team to create a blood glucose predictor for diabetics.\n• Represented the front end web team that consisted of two Senior. Developers in daily meetings.\n• Designed website and logo, mocked out and helped to implement the UX/UI of the application.\n• Helped build React website with oAuth2 authentication, using Formik to create login and registration forms.\n• Ensured routes were properly installed to show top level pages as well as nested views.\n• Proposed and built out food nutrition finder based on USFDA nutrition API..",
 		project_url: "https://insuline.netlify.com/",
 		git_repo: "https://github.com/Build-Week-Diabetes-Manager"
 	},
@@ -50,7 +51,7 @@ const testData = [
 		project_brief:
 			"Collaborated with a Data Science team who used machine learning on user comments from the website Hacker News to rank how negative the comments were.",
 		project_info:
-			"• Collaborated with a Data Science team who used machine learning on user comments from the website Hacker News to rank how negative the comments were.• Designed website and graphics, mocked out full UX and UI of the application.• Worked with a team of three junior front end engineers to build a React front end, using Redux for global state management, and the new React Hooks API.• Collaborated with a Data Science team who used machine learning on user comments from the website Hacker News to rank how negative the comments were.• Designed website and graphics, mocked out full UX and UI of the application.• Worked with a team of three junior front end engineers to build a React front end, using Redux for global state management, and the new React Hooks API.• Established deployment schedule for project and took lead of all junior front end engineers; delegated tasks, handled team disputes, pair programmed to help overcome blockers.• Established deployment schedule for project and took lead of all junior front end engineers; delegated tasks, handled team disputes, pair programmed to help overcome blockers.",
+			"• Collaborated with a Data Science team who used machine learning on user comments from the website Hacker News to rank how negative the comments were.\n• Designed website and graphics, mocked out full UX and UI of the application.• Worked with a team of three junior front end engineers to build a React front end, using Redux for global state management, and the new React Hooks API.• Collaborated with a Data Science team who used machine learning on user comments from the website Hacker News to rank how negative the comments were.• Designed website and graphics, mocked out full UX and UI of the application.• Worked with a team of three junior front end engineers to build a React front end, using Redux for global state management, and the new React Hooks API.• Established deployment schedule for project and took lead of all junior front end engineers; delegated tasks, handled team disputes, pair programmed to help overcome blockers.• Established deployment schedule for project and took lead of all junior front end engineers; delegated tasks, handled team disputes, pair programmed to help overcome blockers.",
 		project_url: "https://saltines.now.sh/",
 		git_repo: "https://github.com/saltiest-hacker-news-comments/FE-work"
 	},
@@ -73,7 +74,7 @@ const styles = makeStyles({
 		height: "100%",
 		margin: "0 auto",
 		// flexGrow:"1",
-		border: "1px solid red"
+		// border: "1px solid red"
 	},
 	code_home_header: {
 		// backgroundColor:"yellow",
@@ -82,7 +83,7 @@ const styles = makeStyles({
 		margin: "1rem auto"
 	},
 	code_header: {
-		border: "1px solid yellow",
+		// border: "1px solid yellow",
 		padding: "4rem"
 	}
 });
