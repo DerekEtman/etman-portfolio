@@ -8,7 +8,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Collapse from "@material-ui/core/Collapse";
 import Typography from "@material-ui/core/Typography";
-import clsx from 'clsx';
+import clsx from "clsx";
+
 
 const styles = makeStyles(theme => ({
 	root: {
@@ -33,10 +34,24 @@ const styles = makeStyles(theme => ({
 	},
 	buttons: {
 		margin: "0 auto"
+	},
+	brief: {
+		height: "100px",
+		// border:"1px solid green",
+		margin: "1rem auto"
+	},
+	brief_header: {
+		borderBottom: "1px solid green",
+		paddingBottom: ".5rem"
+	},
+	infoList: {
+		fontSize:"small",
+		padding:".5rem 0",
 	}
 }));
 
 export default function ProjectCard(props) {
+	const { key, image_url, name, brief, info, url, git_url } = props;
 	const classes = styles();
 	const [expanded, setExpanded] = React.useState(false);
 
@@ -51,15 +66,20 @@ export default function ProjectCard(props) {
 			<CardActionArea>
 				<CardMedia
 					className={classes.media}
-					image={props.image_url}
+					image={image_url}
 					title="Placement Holder"
 				/>
-				<CardContent>
-					<Typography gutterBottom variant="h5" component="h2">
-						{props.name}
+				<CardContent className={classes.brief}>
+					<Typography
+						gutterBottom
+						variant="h5"
+						component="h2"
+						className={classes.brief_header}
+					>
+						{name}
 					</Typography>
-					<Typography variant="body4"  component="p">
-						{props.brief}
+					<Typography variant="body4" component="p">
+						{brief}
 					</Typography>
 				</CardContent>
 			</CardActionArea>
@@ -80,7 +100,7 @@ export default function ProjectCard(props) {
 				<Button
 					size="large"
 					color="primary"
-					href={props.url}
+					href={url}
 					alt="Visit the project website"
 				>
 					Project link
@@ -88,7 +108,8 @@ export default function ProjectCard(props) {
 				<Button
 					size="large"
 					color="primary"
-					href={props.git_url}
+					variant="h2"
+					href={git_url}
 					alt="Visit the Codebase"
 				>
 					Git Repo
@@ -96,9 +117,13 @@ export default function ProjectCard(props) {
 			</CardActions>
 			<Collapse in={expanded} timeout="auto" unmountOnExit>
 				<CardContent>
-					<Typography paragraph variant="body4" component="p">
-						{props.info}
-					</Typography>
+					{info.map(element => {
+						return (
+							<Typography component="h2" className={classes.infoList}>
+								{element}
+							</Typography>
+						);
+					})}
 				</CardContent>
 			</Collapse>
 		</Card>
