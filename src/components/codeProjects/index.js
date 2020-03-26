@@ -11,6 +11,7 @@ import saltines_img from "./assets/Saltines_1.png";
 import droom_img from "./assets/Droom_1.png";
 import memefly_img from "./assets/Memefly_1.png";
 import dont_die_img from "./assets/dont_Die_1.png";
+import {code_pic} from "./assets/code_pic.jpg";
 
 const largeProjectData = [
 	{
@@ -137,10 +138,11 @@ const styles = makeStyles({
 	},
 	code_home_header: {
 		// backgroundColor:"yellow",
-		font: "white",
 		height: "100",
 		borderBottom: "2px solid black",
-		margin: "1rem auto"
+		margin: "1rem auto",
+		backgroundImage: code_pic,
+
 	},
 	code_header: {
 		// border: "1px solid yellow",
@@ -175,7 +177,7 @@ export default function codePage() {
 						<Grid item xs={12} container="true">
 							{largeProjectData.map(project => {
 								return (
-									<ProjectCard
+									<ProjectCard 
 										key={project.id}
 										image_url={project.thumb_nail}
 										name={project.name}
