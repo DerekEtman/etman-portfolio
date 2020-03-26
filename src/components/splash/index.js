@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 	splash_image: {
 		padding:"0",
 		animation:' kenburns-top-left 30s ease-out both',
-		'-webkit-animation': 'kenburns-top-left 10s ease-out both'
+		'-webkit-animation': 'kenburns-top-left 30s ease-out both'
 
 
 	},
@@ -72,6 +72,7 @@ export function MainSplash() {
 				<Container maxWidth="xl">
 					<Grid>
 						<Paper elevation={3} className="splash_text">
+							<h2>A Bit About Me</h2>
 							<p>
 								Experienced freelance with a demonstrated history of working in the
 								media production industry. Skilled in all aspects of audio, digital
