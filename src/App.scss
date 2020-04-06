@@ -4,7 +4,9 @@
 
 // font-family: 'Belgrano', serif;
 // font-family: 'Montserrat', sans-serif;
-
+html{
+  font-size: 62.5%;
+}
 
 :root{
   --splash-header-1:'Belgrano', serif;
@@ -17,7 +19,7 @@
   --black: #282c34;
   --yellow: #FFCB47;
 
-  font-size: 10px;
+  // font-size: 10px;
 }
 .App {
   text-align: center;

@@ -148,7 +148,7 @@ const styles = makeStyles({
 		// border: "1px solid yellow",
 		padding: "2rem",
 		fontSize: "4rem",
-		width: "100%"
+		// width: "100%"
 	}
 });
 
