@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	splash_image_wrapper: {
 		// maxWidth:"500px",
-		maxWidth:"75%",
+		Width:"75%",
 		overflow:"hidden",
 		padding:"0 !important",
 	},

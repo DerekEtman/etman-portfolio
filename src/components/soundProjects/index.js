@@ -8,9 +8,7 @@ const useStyles = makeStyles((theme) => ({
 		height: "90vh",
     },
     textWrapper: {
-        // padding:"50px auto",
         border:"12px dashed yellow",
-        // marginTop:50,
     }
 }));
 

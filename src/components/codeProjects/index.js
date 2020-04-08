@@ -11,7 +11,7 @@ import saltines_img from "./assets/Saltines_1.png";
 import droom_img from "./assets/Droom_1.png";
 import memefly_img from "./assets/Memefly_1.png";
 import dont_die_img from "./assets/dont_Die_1.png";
-import {code_pic} from "./assets/code_pic.jpg";
+import { code_pic } from "./assets/code_pic.jpg";
 
 const largeProjectData = [
 	{
@@ -23,11 +23,11 @@ const largeProjectData = [
 		project_info: [
 			"• Collaborated with a Data Science team to create a website for a Neural Network Meme generator.",
 			"• Worked on a team of six developers to create a fully authenticated online image text editor, backed by MongoDB, with a React and FabricJS frontend.",
-			"• Handled delegation of tasks and breakdown of product releases over a 2+ month period."
+			"• Handled delegation of tasks and breakdown of product releases over a 2+ month period.",
 		],
 		tech_stack: [],
 		project_url: "https://www.memeflyai.com/",
-		git_repo: "https://github.com/Lambda-School-Labs/memefly-fe.git"
+		git_repo: "https://github.com/Lambda-School-Labs/memefly-fe.git",
 	},
 	{
 		id: 1,
@@ -40,11 +40,11 @@ const largeProjectData = [
 			"• Built and deployed a Java application using Spring framework API following the REST architectural pattern with OAuth2 authentication.",
 			"• Migrated from H2 to PostGres using a seeding script to generate default data.",
 			"• Created user docs with swagger.",
-			"• Ensured stable code using JUnit to write unit tests."
+			"• Ensured stable code using JUnit to write unit tests.",
 		],
 		tech_stack: [],
 		project_url: "https://front-end.pedroprieto.now.sh/",
-		git_repo: "https://github.com/Safe-Routes-Finders/Back-End"
+		git_repo: "https://github.com/Safe-Routes-Finders/Back-End",
 	},
 	{
 		id: 2,
@@ -58,11 +58,11 @@ const largeProjectData = [
 			"• Designed website and logo, mocked out and helped to implement the UX/UI of the application.",
 			"• Helped build React website with oAuth2 authentication, using Formik to create login and registration forms.",
 			"• Ensured routes were properly installed to show top level pages as well as nested views.",
-			"• Proposed and built out food nutrition finder based on USFDA nutrition API."
+			"• Proposed and built out food nutrition finder based on USFDA nutrition API.",
 		],
 		tech_stack: [],
 		project_url: "https://insuline.netlify.com/",
-		git_repo: "https://github.com/Build-Week-Diabetes-Manager"
+		git_repo: "https://github.com/Build-Week-Diabetes-Manager",
 	},
 	{
 		id: 3,
@@ -77,11 +77,11 @@ const largeProjectData = [
 			"• Designed website and graphics, mocked out full UX and UI of the application.",
 			"• Worked with a team of three junior front end engineers to build a React front end, using Redux for global state management, and the new React Hooks API.",
 			"• Established deployment schedule for project and took lead of all junior front end engineers; delegated tasks, handled team disputes, pair programmed to help overcome blockers.",
-			"• Established deployment schedule for project and took lead of all junior front end engineers; delegated tasks, handled team disputes, pair programmed to help overcome blockers."
+			"• Established deployment schedule for project and took lead of all junior front end engineers; delegated tasks, handled team disputes, pair programmed to help overcome blockers.",
 		],
 		tech_stack: [],
 		project_url: "https://saltines.now.sh/",
-		git_repo: "https://github.com/saltiest-hacker-news-comments/FE-work"
+		git_repo: "https://github.com/saltiest-hacker-news-comments/FE-work",
 	},
 	{
 		id: 4,
@@ -91,11 +91,11 @@ const largeProjectData = [
 		project_info: [
 			"• Designed marketing website and logo for job search website.",
 			"• Used less and flex box to create animations.",
-			"• Laid out fully responsive website for desktop, tablet, and mobile use."
+			"• Laid out fully responsive website for desktop, tablet, and mobile use.",
 		],
 		tech_stack: [],
 		project_url: "https://droom2019.netlify.com/",
-		git_repo: "https://github.com/build-week-droom/Droom-UI"
+		git_repo: "https://github.com/build-week-droom/Droom-UI",
 	},
 	{
 		id: 5,
@@ -106,12 +106,12 @@ const largeProjectData = [
 		project_info: [
 			"• Designed Website, character, and game map.",
 			"• Learned and deployed server using Django Framework.",
-			"•Connected server to Dont Die Client"
+			"•Connected server to Dont Die Client",
 		],
 		tech_stack: [],
 		project_url: "https://droom2019.netlify.com/",
-		git_repo: "https://github.com/build-week-droom/Droom-UI"
-	}
+		git_repo: "https://github.com/build-week-droom/Droom-UI",
+	},
 ];
 
 const dayProjectData = [
@@ -123,8 +123,8 @@ const dayProjectData = [
 		project_info: ["Fill in points"],
 		tech_stack: [],
 		project_url: "https://www.memeflyai.com/",
-		git_repo: "https://github.com/Lambda-School-Labs/memefly-fe.git"
-	}
+		git_repo: "https://github.com/Lambda-School-Labs/memefly-fe.git",
+	},
 ];
 
 const styles = makeStyles({
@@ -132,7 +132,7 @@ const styles = makeStyles({
 	media_container: {
 		width: "90%",
 		height: "100%",
-		margin: "0 auto"
+		margin: "0 auto",
 		// flexGrow:"1",
 		// border: "1px solid red"
 	},
@@ -142,14 +142,13 @@ const styles = makeStyles({
 		borderBottom: "2px solid black",
 		margin: "1rem auto",
 		backgroundImage: code_pic,
-
 	},
 	code_header: {
 		// border: "1px solid yellow",
 		padding: "2rem",
 		fontSize: "4rem",
 		// width: "100%"
-	}
+	},
 });
 
 export default function codePage() {
@@ -175,9 +174,9 @@ export default function codePage() {
 						alignItems="center"
 					>
 						<Grid item xs={12} container="true">
-							{largeProjectData.map(project => {
+							{largeProjectData.map((project) => {
 								return (
-									<ProjectCard 
+									<ProjectCard
 										key={project.id}
 										image_url={project.thumb_nail}
 										name={project.name}
@@ -204,7 +203,7 @@ export default function codePage() {
 						alignItems="center"
 					>
 						<Grid item xs={12} container="true">
-							{dayProjectData.map(project => {
+							{dayProjectData.map((project) => {
 								return (
 									<ProjectCard
 										key={project.id}
