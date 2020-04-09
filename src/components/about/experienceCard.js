@@ -4,7 +4,7 @@ import { Typography, Card, CardContent } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 	skillContainer: {
-		width: "8%",
+		// width: "8%",
 		boxShadow: "none",
 	},
 }));

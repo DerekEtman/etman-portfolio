@@ -7,7 +7,13 @@ import SkillCard from "./skillCard";
 import ExperienceCard from "./experienceCard";
 import EducationCard from "./educationCard";
 
-import { Typography, Card, makeStyles, CardContent } from "@material-ui/core";
+import {
+	Typography,
+	Card,
+	makeStyles,
+	CardContent,
+	Grid,
+} from "@material-ui/core";
 
 // const useStyles = makeStyles((theme) =>
 const useStyles = makeStyles((theme) => ({
@@ -15,31 +21,29 @@ const useStyles = makeStyles((theme) => ({
 	resumeContact: {
 		width: "50%",
 		margin: "0 auto",
-        border: "none",
-        padding:"1%",
-        borderRadius:"0"
+		border: "none",
+		padding: "1%",
+		borderRadius: "0",
+	},
+	skillsSection: {
+        // border: "1px solid green",
+        border:"none",
+		// display: "flex",
+		// flexDirection: "column",
+		paddingTop: "1%",
+	},
+    experienceSection: {
+        paddingTop: "1%",
+        border:"none",
     },
-    skillsSection:{
-        border:"1px solid green",
-        display:"flex",
-        flexDirection:"column",
-        paddingTop:"1%",
-        
-
-
-
+    educationSection: {
+        paddingTop: "1%",
+        border:"none",
     },
 	resumeSkills: {
-        border: "1px solid red",
-        flexDirection:"row",
-    },
-    experienceSection: {
-        paddingTop:"1%",
-
-    },
-    educationSection:{
-        paddingTop:"1%",
-    }
+		// border: "1px solid red",
+		// flexDirection: "row",
+	},
 }));
 
 export default function ResumeBuilder() {
@@ -50,26 +54,29 @@ export default function ResumeBuilder() {
 		<Paper>
 			<Card className={classes.resumeContact} variant="outlined">
 				<Typography variant="h2">{contact.name}</Typography>
-				<Typography>{contact.phone}</Typography>
-				<Typography>{contact.email}</Typography>
-				<Typography>{contact.linkedIn}</Typography>
-				<Typography>{contact.personalWebsite}</Typography>
-				<Typography>{contact.gitHub}</Typography>
+				<CardContent>
+					{/* <Typography>{contact.phone}</Typography> */}
+					<Typography>{contact.email}</Typography>
+					<Typography>{contact.linkedIn}</Typography>
+					<Typography>{contact.personalWebsite}</Typography>
+					<Typography>{contact.gitHub}</Typography>
+				</CardContent>
 			</Card>
 
 			<Card variant="outlined" className={classes.skillsSection}>
-					<Typography variant="h3">Skills</Typography>
+				<Typography variant="h3">Skills</Typography>
 
 				<CardContent className={classes.resumeSkills}>
-					{skills.coding.map((skill) => {
-						return <SkillCard codingSkill={skill} />;
-					})}
+					<Grid container spacing={0}>
+							{skills.coding.map((skill) => {
+								return <SkillCard codingSkill={skill} />;
+							})}
+					</Grid>
 				</CardContent>
 			</Card>
 
 			<Card variant="outlined" className={classes.experienceSection}>
 				<Typography variant="h3">Experience</Typography>
-
 				{experience.map((experience) => {
 					return (
 						<ExperienceCard
@@ -81,6 +88,7 @@ export default function ResumeBuilder() {
 					);
 				})}
 			</Card>
+
 			<Card variant="outlined" className={classes.educationSection}>
 				<Typography variant="h3">Education</Typography>
 

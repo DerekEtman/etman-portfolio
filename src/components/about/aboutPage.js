@@ -199,7 +199,7 @@ const useStyles = makeStyles((theme) => ({
 		minHeight: "92vh",
 	},
 	resumeTab: {
-		border: "1px solid yellow",
+		// border: "1px solid yellow",
 		margin: "0 auto",
 		width: "100%",
 		// height: "90vh",
