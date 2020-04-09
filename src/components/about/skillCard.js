@@ -5,15 +5,17 @@ import { Typography, Card, CardContent } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 	skillContainer: {
-		width: "8%",
-		boxShadow: "none",
+        // width: "8%",
+        // height: "5%",
+        boxShadow: "none",
+        padding: ".2%",
+        margin:"0 auto"
 	},
 }));
 
 export default function SkillCard(skill) {
-	const classes = useStyles();
-
-	console.log(skill);
+    const classes = useStyles();
+    
 	return (
 		<Card className={classes.skillContainer}>
 			<CardContent>
