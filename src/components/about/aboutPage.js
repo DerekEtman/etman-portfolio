@@ -186,8 +186,6 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 		backgroundColor: theme.palette.background.paper,
 		display: "flex",
-		height: "auto",
-		// maxHeight:'900',
 		backgroundColor: "black",
 		color: "white",
 		margin: "0 auto",
@@ -196,16 +194,15 @@ const useStyles = makeStyles((theme) => ({
 		borderRight: `1px solid ${theme.palette.divider}`,
 	},
 	aboutMeTab: {
-		border: "1px solid yellow",
 		margin: "0 auto",
 		width: "100%",
-		height: "92vh",
+		minHeight: "92vh",
 	},
 	resumeTab: {
 		border: "1px solid yellow",
 		margin: "0 auto",
 		width: "100%",
-		height: "90vh",
+		// height: "90vh",
 	},
 }));
 
