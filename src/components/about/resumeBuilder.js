@@ -30,17 +30,24 @@ const useStyles = makeStyles((theme) => ({
         border:"none",
 		// display: "flex",
 		// flexDirection: "column",
-		paddingTop: "1%",
+        paddingTop: "1%",
+        boxShadow:"none",
+
 	},
     experienceSection: {
         paddingTop: "1%",
         border:"none",
+        boxShadow:"none",
+
     },
     educationSection: {
         paddingTop: "1%",
         border:"none",
+        boxShadow:"none",
     },
 	resumeSkills: {
+        border:"none",
+        boxShadow:"none",
 		// border: "1px solid red",
 		// flexDirection: "row",
 	},
@@ -51,7 +58,7 @@ export default function ResumeBuilder() {
 	const { contact, experience, skills, education } = resumeData;
 
 	return (
-		<Paper>
+		<Paper >
 			<Card className={classes.resumeContact} variant="outlined">
 				<Typography variant="h2">{contact.name}</Typography>
 				<CardContent>
@@ -63,7 +70,7 @@ export default function ResumeBuilder() {
 				</CardContent>
 			</Card>
 
-			<Card variant="outlined" className={classes.skillsSection}>
+			<Card className={classes.skillsSection}>
 				<Typography variant="h3">Skills</Typography>
 
 				<CardContent className={classes.resumeSkills}>
@@ -75,7 +82,7 @@ export default function ResumeBuilder() {
 				</CardContent>
 			</Card>
 
-			<Card variant="outlined" className={classes.experienceSection}>
+			<Card className={classes.experienceSection}>
 				<Typography variant="h3">Experience</Typography>
 				{experience.map((experience) => {
 					return (
@@ -89,15 +96,15 @@ export default function ResumeBuilder() {
 				})}
 			</Card>
 
-			<Card variant="outlined" className={classes.educationSection}>
+			<Card  className={classes.educationSection}>
 				<Typography variant="h3">Education</Typography>
 
 				{education.map((education) => {
 					return (
 						<EducationCard
-							schoolname={education.schoolName}
+							schoolName={education.schoolName}
 							program={education.programTitle}
-							enrollmentDate={education.enrollmentDate}
+							date={education.enrollmentDate}
 							info={education.infoAboutProgram}
 						/>
 					);

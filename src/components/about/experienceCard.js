@@ -4,7 +4,8 @@ import { Typography, Card, CardContent, CardHeader } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 	experienceContainer: {
-		// width: "8%",
+        // width: "8%",
+        border:"none",
 		boxShadow: "none",
 	},
 }));
@@ -20,7 +21,7 @@ export default function ExperienceCard(props) {
 				<CardHeader title={title} subheader={company + " " + date} />
 				<CardContent>
 					{duty.map((r) => {
-						return <Typography>{r}</Typography>;
+						return <Typography>• {r}</Typography>;
 					})}
 				</CardContent>
 			</Card>
