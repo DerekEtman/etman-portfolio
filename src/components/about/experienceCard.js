@@ -4,12 +4,22 @@ import { Typography, Card, CardContent, CardHeader } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
 	experienceContainer: {
-        // width: "8%",
+		maxWidth: "80%",
+		margin:"0 auto",
         border:"none",
 		boxShadow: "none",
 		// fontFamily:"'Bebas Neue', cursive",
 		// fontSize:16,
 	},
+	CardHeader: {
+		fontFamily:"'Bebas Neue', cursive",
+		fontSize:16,
+	},
+	CardHeader: {
+		fontFamily: "'Bebas Neue', cursive",
+
+	}
+
 }));
 
 export default function ExperienceCard(props) {
@@ -20,10 +30,10 @@ export default function ExperienceCard(props) {
 	return (
 		<>
 			<Card className={classes.experienceContainer}>
-				<CardHeader title={title} subheader={company + " " + date} />
-				<CardContent>
+				<CardHeader  title={title} subheader={company + " " + date} className={classes.CardHeader}/>
+				<CardContent className={classes.cardInfo}>
 					{duty.map((r) => {
-						return <Typography>• {r}</Typography>;
+						return <Typography variant="body2">• {r}</Typography>;
 					})}
 				</CardContent>
 			</Card>

@@ -11,8 +11,6 @@ import SkillCard from "./skillCard";
 import ExperienceCard from "./experienceCard";
 import EducationCard from "./educationCard";
 
-
-
 import {
 	Typography,
 	Card,
@@ -25,10 +23,7 @@ import {
 
 // const useStyles = makeStyles((theme) =>
 const useStyles = makeStyles((theme) => ({
-	root: {
-
-		
-	},
+	root: {},
 	resumeContact: {
 		border: "none",
 		padding: "1%",
@@ -40,19 +35,16 @@ const useStyles = makeStyles((theme) => ({
 		// flexDirection: "column",
 		paddingTop: "1%",
 		boxShadow: "none",
-
 	},
 	experienceSection: {
 		paddingTop: "1%",
 		border: "none",
 		boxShadow: "none",
-
 	},
 	educationSection: {
 		paddingTop: "1%",
 		border: "none",
 		boxShadow: "none",
-
 	},
 	resumeSkills: {
 		border: "none",
@@ -62,10 +54,22 @@ const useStyles = makeStyles((theme) => ({
 	},
 	contactInfo: {
 		width: "100%",
+		margin: "0 auto",
+		justifyContent: "center",
 	},
 	contactAddresses: {
-		padding: "2%",
+		// padding: "2%",
+		margin: "2%",
+		fontSize: 14,
 	},
+	resumeName: {
+		fontFamily:"'Bebas Neue', cursive",
+		fontSize:72,
+	},
+	resumeSectionTitles: {
+		fontFamily:"'Bebas Neue', cursive",
+		fontSize:46,
+	}
 }));
 
 export default function ResumeBuilder() {
@@ -75,34 +79,36 @@ export default function ResumeBuilder() {
 	return (
 		<Paper className={classes.root}>
 			<Card className={classes.resumeContact} variant="outlined">
-				<Typography variant="h2">{contact.name}</Typography>
-				{/* <Typography>{contact.phone}</Typography> */}
-				{/* <Typography className={classes.contactAddresses}>{contact.email}</Typography>
-					<Typography component={Link} src={contact.linkedIn} >{contact.linkedIn}</Typography>
-					<Typography component={Link} href={contact.personalWebsite}>{contact.personalWebsite}</Typography>
-					<Typography component={Link} href={contact.gitHub}>{contact.gitHub}</Typography> */}
+				<Typography variant="h2" className={classes.resumeName}>{contact.name}</Typography>
+
 				<Grid container spacing={0} className={classes.contactInfo}>
 					<Typography className={classes.contactAddresses}>
-						<MailOutlineIcon /> <Link>{contact.email}</Link>
+						<Link>
+							<MailOutlineIcon /> {contact.email}
+						</Link>
 					</Typography>
 
 					<Typography className={classes.contactAddresses}>
-						<LinkedInIcon /> <Link href={contact.linkedIn}>{contact.linkedIn}</Link>
+						<Link href={contact.linkedIn}>
+							<LinkedInIcon /> {contact.linkedIn}
+						</Link>
 					</Typography>
 
 					<Typography className={classes.contactAddresses}>
-						<WebIcon />{" "}
-						<Link href={contact.personalWebsite}>{contact.personalWebsite}</Link>
+						
+						<Link href={contact.personalWebsite}> <WebIcon /> {contact.personalWebsite}</Link>
 					</Typography>
 
 					<Typography className={classes.contactAddresses}>
-						<GitHubIcon /> <Link href={contact.gitHub}>{contact.gitHub}</Link>
+						<Link href={contact.gitHub}>
+							<GitHubIcon /> {contact.gitHub}
+						</Link>
 					</Typography>
 				</Grid>
 			</Card>
 
 			<Card className={classes.skillsSection}>
-				<Typography variant="h3">Skills</Typography>
+				<Typography variant="h3 " className={classes.resumeSectionTitles}>Skills</Typography>
 
 				<CardContent className={classes.resumeSkills}>
 					<Grid container spacing={0}>
@@ -114,7 +120,7 @@ export default function ResumeBuilder() {
 			</Card>
 
 			<Card className={classes.experienceSection}>
-				<Typography variant="h3">Experience</Typography>
+				<Typography variant="h3" className={classes.resumeSectionTitles}>Experience</Typography>
 				{experience.map((experience) => {
 					return (
 						<ExperienceCard
@@ -128,7 +134,7 @@ export default function ResumeBuilder() {
 			</Card>
 
 			<Card className={classes.educationSection}>
-				<Typography variant="h3">Education</Typography>
+				<Typography variant="h3" className={classes.resumeSectionTitles}>Education</Typography>
 
 				{education.map((education) => {
 					return (

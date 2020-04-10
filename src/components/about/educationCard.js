@@ -4,6 +4,8 @@ import { Card, CardHeader, Typography, CardContent, makeStyles } from "@material
 
 const useStyles = makeStyles((theme) => ({
     educationalContainer: {
+		maxWidth: "80%",
+		margin: "0 auto",
         border:"none",
 		boxShadow:"none",
 		// fontFamily:"'Bebas Neue', cursive",
