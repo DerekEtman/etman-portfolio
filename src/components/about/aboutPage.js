@@ -64,6 +64,10 @@ const useStyles = makeStyles((theme) => ({
 		width: "100%",
 		// height: "90vh",
 	},
+	tabs:{
+
+	}
+	
 }));
 
 export default function VerticalTabs() {
@@ -84,8 +88,8 @@ export default function VerticalTabs() {
 				aria-label="Vertical tabs example"
 				className={classes.tabs}
 			>
-				<Tab label="About Derek" {...a11yProps(0)} />
-				<Tab label="Resume" {...a11yProps(1)} />
+				<Tab className={classes.tabs} label="About Derek" {...a11yProps(0)} />
+				<Tab className={classes.tabs} label="Resume" {...a11yProps(1)} />
 			</Tabs>
 
 			{/* First Tab - About Me */}

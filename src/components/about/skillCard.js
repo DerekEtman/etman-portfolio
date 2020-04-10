@@ -9,8 +9,12 @@ const useStyles = makeStyles((theme) => ({
         // height: "5%",
         boxShadow: "none",
         padding: ".2%",
-        margin:"0 auto"
+		margin:"0 auto",		
 	},
+	singleSkill:{
+		// fontFamily:"'Bebas Neue', cursive",
+		fontSize:16,
+	}
 }));
 
 export default function SkillCard(skill) {
@@ -19,7 +23,7 @@ export default function SkillCard(skill) {
 	return (
 		<Card className={classes.skillContainer}>
 			<CardContent>
-				<Typography>{skill.codingSkill}</Typography>
+				<Typography className={classes.singleSkill}>{skill.codingSkill}</Typography>
 			</CardContent>
 		</Card>
 	);
