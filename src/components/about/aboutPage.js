@@ -1,15 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
+
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { Container } from "@material-ui/core";
-import derek from "../splash/images/derek_leaning_no_background.png";
-import Paper from "@material-ui/core/Paper";
+import {
+	Typography,
+	Card,
+	makeStyles,
+	CardContent,
+	Grid,
+	Link,
+	Icon,
+	Paper
+} from "@material-ui/core";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import WebIcon from "@material-ui/icons/Web";
 
+import derek from "../splash/images/derek_leaning_no_background.png";
 import resumeBuilder from "./resumeBuilder";
+import { resumeData } from "./resumeData";
+
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -52,11 +65,14 @@ const useStyles = makeStyles((theme) => ({
 	},
 	tabs: {
 		borderRight: `1px solid ${theme.palette.divider}`,
+		marginTop:".5rem"
 	},
 	aboutMeTab: {
 		margin: "0 auto",
 		width: "100%",
 		minHeight: "92vh",
+		backgroundColor:"black",
+		color:"white",
 	},
 	resumeTab: {
 		// border: "1px solid yellow",
@@ -64,12 +80,45 @@ const useStyles = makeStyles((theme) => ({
 		width: "100%",
 		// height: "90vh",
 	},
-	tabs: {},
+	aboutMeWrapper:{
+		backgroundColor:"black",
+		color:"white",
+	},
+	aboutHeader:{
+		fontFamily:"'Bebas Neue', cursive",
+
+	},
+	aboutBody:{
+		padding:"1rem 0",
+		width:"80%",
+		margin:"0 auto",
+		fontFamily: "'Montserrat', sans-serif",
+	},
+	contactTab: {
+		margin: "0 auto",
+		width: "100%",
+		minHeight: "92vh",
+		backgroundColor:"black",
+		color:"white",
+	},
+	contactInfo: {
+		width: "100%",
+		margin: "0 auto",
+		justifyContent: "center",
+		backgroundColor:"black",
+		color:"white",
+	},
+	contactAddresses: {
+		// padding: "2%",
+		margin: "2%",
+		fontSize: 14,
+	},
 }));
 
 export default function VerticalTabs() {
 	const classes = useStyles();
 	const [value, setValue] = React.useState(0);
+	const { contact} = resumeData;
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
@@ -87,19 +136,20 @@ export default function VerticalTabs() {
 			>
 				<Tab className={classes.tabs} label="About Derek" {...a11yProps(0)} />
 				<Tab className={classes.tabs} label="Resume" {...a11yProps(1)} />
+				<Tab className={classes.tabs} label="Contact"  {...a11yProps(2)}/>
 			</Tabs>
 
 			{/* First Tab - About Me */}
 			<TabPanel value={value} index={0} className={classes.aboutMeTab}>
-				<Paper>
-					<Typography variant="h3">This is me.</Typography>
-					<Typography>
+				<Paper className={classes.aboutMeWrapper}>
+					<Typography variant="h3" className={classes.aboutHeader}>This is me.</Typography>
+					<Typography variant="body1" className={classes.aboutBody}>
 						As crucial as it is, the ability to create music is not enough today;
 						while I might not have been aware then, everything I've done as a musician
 						and composer has reinforced and aided in my pursuit of being a web
 						developer.
 					</Typography>
-					<Typography>
+					<Typography variant="body1" className={classes.aboutBody}>
 						I could make this really long-winded but as web developers and music
 						professionals we both know that we have lots to do and very little time to
 						do them. Here’s a really quick breakdown, if you want more details you can
@@ -108,12 +158,12 @@ export default function VerticalTabs() {
 						problem solver - Obsessed with sound quality - Workaholic - Many Sleepless
 						nights - Quick at learning and adapting - Switched to web development
 					</Typography>
-					<Typography>
+					<Typography variant="body1" className={classes.aboutBody}>
 						Playing piano from a young age led me to compose music, collect, and
 						playing multiple instruments, I recently picked up a tremoloa and a
 						marxophone. Very fun instruments from the 20s and 30s
 					</Typography>
-					<Typography>
+					<Typography variant="body1" className={classes.aboutBody}>
 						Interning at recording studios has led to hundreds of hours of recording
 						and mixing, reading manuals for each piece of equipment, the endless quest
 						for producing better sounds, and the awesome ability of getting coffee.
@@ -157,6 +207,40 @@ export default function VerticalTabs() {
 			{/* Second Tab - Resume */}
 			<TabPanel value={value} index={1} className={classes.resumeTab}>
 				{resumeBuilder}
+			</TabPanel>
+
+			<TabPanel value={value} index={2} className={classes.contactTab} id="contactTabID">
+				<Typography variant="h3" className={classes.aboutHeader}>
+					Feel free to contact me at through any one of these.
+				</Typography>
+
+				<Grid container spacing={0} className={classes.contactInfo}>
+					<Typography className={classes.contactAddresses}>
+						<Link>
+							<MailOutlineIcon /> {contact.email}
+						</Link>
+					</Typography>
+
+					<Typography className={classes.contactAddresses}>
+						<Link href={contact.linkedIn}>
+							<LinkedInIcon /> {contact.linkedIn}
+						</Link>
+					</Typography>
+
+					<Typography className={classes.contactAddresses}>
+						
+						<Link href={contact.personalWebsite}> <WebIcon /> {contact.personalWebsite}</Link>
+					</Typography>
+
+					<Typography className={classes.contactAddresses}>
+						<Link href={contact.gitHub}>
+							<GitHubIcon /> {contact.gitHub}
+						</Link>
+					</Typography>
+				</Grid>
+
+
+
 			</TabPanel>
 		</div>
 	);

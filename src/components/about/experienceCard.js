@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
 		margin:"0 auto",
         border:"none",
 		boxShadow: "none",
-		// fontFamily:"'Bebas Neue', cursive",
-		// fontSize:16,
+		backgroundColor:"black",
+		color:"white",
 	},
 	CardHeader: {
 		fontFamily:"'Bebas Neue', cursive",
@@ -18,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
 	CardHeader: {
 		fontFamily: "'Bebas Neue', cursive",
 
-	}
+	},
+	
 
 }));
 

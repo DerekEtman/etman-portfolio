@@ -27,8 +27,6 @@ const useStyles = makeStyles(theme => ({
 		padding:"0",
 		animation:' kenburns-top-left 30s ease-out both',
 		'-webkit-animation': 'kenburns-top-left 30s ease-out both'
-
-
 	},
 	splash_text: {
 		padding: "5rem",
@@ -42,8 +40,8 @@ export function MainSplash() {
 		<>
 			<div className="MainSplashContainer">
 				<Container maxWidth="xl" className="Splash_Container">
-					<Grid container spacing={3}>
-						<Grid item xs={7}>
+					<Grid container spacing={0}>
+						<Grid item xs={12} sm={12} md={7} lg={7}>
 							<h1 id="Splash_Hello">HELLO!</h1>
 							<h3 id="Splash_Message"> I'M DEREK</h3>
 							<h3 id="Splash_Message2"> HOW CAN I HELP?</h3>
@@ -51,16 +49,16 @@ export function MainSplash() {
 								<Link href="/code" id="splash_nav" className="splash_link">
 									CODE
 								</Link>
-								<Link href="/sound" id="splash_nav" className="splash_link">
+								{/* <Link href="/sound" id="splash_nav" className="splash_link">
 									AUDIO
-								</Link>
+								</Link> */}
 								<Link href="/about" id="splash_nav" className="splash_link">
 									MORE
 								</Link>
 							</Grid>
 						</Grid>
 
-						<Grid className={classes.splash_image_wrapper} item xs={5}>
+						<Grid className={classes.splash_image_wrapper} id="splash_image_container" item xs={5}>
 							<img className={classes.splash_image} src={derek_leaning} />
 						</Grid>
 					</Grid>

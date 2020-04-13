@@ -148,22 +148,28 @@ const styles = makeStyles({
 		width: "90%",
 		height: "100%",
 		margin: "0 auto",
-		// flexGrow:"1",
-		// border: "1px solid red"
+		fontFamily:"'Bebas Neue', cursive",
 	},
 	code_home_header: {
 		// backgroundColor:"yellow",
 		height: "100",
-		borderBottom: "2px solid black",
 		margin: "1rem auto",
-		backgroundImage: code_pic,
+		fontFamily:"'Bebas Neue', cursive",
+
 	},
 	code_header: {
-		// border: "1px solid yellow",
-		padding: "2rem",
-		fontSize: "4rem",
-		// width: "100%"
+		fontSize:"3.5rem",
+		fontFamily:"'Bebas Neue', cursive",
 	},
+	large_project_header:{
+		display:"flex",
+		flexDirection:"flex-start",
+		fontFamily:"'Bebas Neue', cursive",
+		fontSize:"3rem",
+		borderBottom:"4px solid black",
+
+
+	}
 });
 
 export default function codePage() {
@@ -178,8 +184,8 @@ export default function codePage() {
 					</h1>
 				</Typography>
 				<div className={classes.media_container}>
-					<Typography>
-						<h1>LARGE PROJECTS</h1>
+					<Typography className={classes.large_project_header}>
+						<h3 style={{margin:"0"}}>LARGE PROJECTS</h3>
 					</Typography>
 					<Grid
 						container

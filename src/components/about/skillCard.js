@@ -11,6 +11,8 @@ const useStyles = makeStyles((theme) => ({
         padding: ".2%",
 		margin:"0 auto",
 		maxWidth: "80%",		
+		backgroundColor:"black",
+		color:"white",
 	},
 	singleSkill:{
 		// fontFamily:"'Bebas Neue', cursive",

@@ -5,7 +5,7 @@
 // font-family: 'Belgrano', serif;
 // font-family: 'Montserrat', sans-serif;
 html{
-  font-size: 62.5%;
+  // font-size: 62.5%;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -46,6 +46,9 @@ html{
     background: #555;
   } 
 
+
+/*-------------App------------  */
+
 .App {
   text-align: center;
   // background-color: var(--yellow);
@@ -74,12 +77,13 @@ html{
 }
 
 
+/*--------------Splash--------------- */
 .MainSplashContainer{
   // border: 1px solid green;
   height:70vh;
   width: 100%;
   // margin:9% 0;
-  padding: 4rem 0 5rem;
+  padding: 2rem 0 3rem;
   z-index: 1;
   background-color: var(--yellow);
   overflow: hidden;
@@ -90,7 +94,7 @@ html{
   }
 
   #Splash_Hello{
-    font-size: 8.6rem;
+    font-size:  6rem;
     font-family: var(--splash-header-1);
     font-weight: normal;
     color: var(--black);
@@ -101,7 +105,7 @@ html{
   }
 
   #Splash_Message{
-    font-size: 14.4rem;
+    font-size: 8.5rem;
     font-family: var(--splash-header-1);
     font-weight: normal;
     color: var(--black);
@@ -112,7 +116,7 @@ html{
   }
 
   #Splash_Message2{
-    font-size: 7.2rem;
+    font-size: 4rem;
     font-family: var(--splash-header-1);
     font-weight: normal;
     color: var(--black);
@@ -125,7 +129,7 @@ html{
   }
 
   #splash_nav{
-    font-size: 4.8rem;
+    font-size: 3.2rem;
     color: var(--black);
     font-family: var(--splash-body-1);
     font-weight: normal;
@@ -144,7 +148,7 @@ html{
 
   }
 
-  @media only screen and (max-width:1372px) {
+  @media only screen and (max-width:1290px) {
     #Splash_Hello{
       font-size: 6.4rem;
     }
@@ -152,34 +156,53 @@ html{
       font-size: 7.2rem;
     }
     #Splash_Message2{
-      font-size: 6.4rem;
+      font-size: 4rem;
     }
     #splash_nav{
-      font-size: 4rem;
+      // font-size: 4rem;
     }
   }
 
-  @media only screen and (max-width:1072px) {
+  @media only screen and (max-width:1092px) {
     #Splash_Hello{
       font-size: 5.3rem;
+      text-align: center;
+
     }
     #Splash_Message{
-      font-size: 7.2rem;
+      font-size: 6rem;
+      text-align: center;
+
     }
     #Splash_Message2{
-      font-size: 5.3rem;
+      font-size: 3.5rem;
+      text-align: center;
+    }
+    #splash_image_container{
+      display: none;
     }
   }
 
   @media only screen and (max-width:500px) {
+    .MainSplashContainer{
+      max-height: 50vh;
+      padding-bottom:0 ;
+    }
     #Splash_Hello{
       font-size: 5.3rem;
+      text-align: center;
     }
     #Splash_Message{
-      font-size: 6rem;
+      font-size: 4rem;
+      text-align: center;
+
     }
     #Splash_Message2{
-      font-size: 4.7rem;
+      font-size: 3rem;
+      text-align: center;
+    }
+    #splash_image_container{
+      display: none;
     }
   }
 }
