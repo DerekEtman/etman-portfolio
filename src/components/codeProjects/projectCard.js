@@ -17,7 +17,9 @@ const styles = makeStyles(theme => ({
 		maxWidth: "80%",
 		margin: "1rem auto",
 		borderTopRightRadius: "15px",
-		borderBottomLeftRadius: "15px"
+		borderBottomLeftRadius: "15px",
+		fontFamily:"'Bebas Neue', cursive",
+
 	},
 	expand: {
 		transform: "rotate(0deg)",
@@ -25,9 +27,6 @@ const styles = makeStyles(theme => ({
 		transition: theme.transitions.create("transform", {
 			duration: theme.transitions.duration.shortest
 		})
-	},
-	expandOpen: {
-		// backgroundColor: "grey"
 	},
 	media: {
 		height: 140
@@ -37,16 +36,20 @@ const styles = makeStyles(theme => ({
 	},
 	brief: {
 		height: "100px",
-		// border:"1px solid green",
-		margin: "1rem auto"
+		margin: "0 auto 2rem",
+		fontFamily: "'Montserrat', sans-serif",
+
 	},
 	brief_header: {
 		borderBottom: "1px solid green",
-		paddingBottom: ".5rem"
+		paddingBottom: ".5rem",
+		fontFamily:"'Bebas Neue', cursive",
+
 	},
 	infoList: {
 		fontSize:"small",
 		padding:".5rem 0",
+		fontFamily: "'Montserrat', sans-serif",
 	}
 }));
 
@@ -85,7 +88,7 @@ export default function ProjectCard(props) {
 			</CardActionArea>
 			<CardActions className={{ buttons: classes.buttons }}>
 				<Button
-					size="large"
+					size="medium"
 					color="secondary"
 					alt="Learn more about this project"
 					className={clsx(classes.expand, {
@@ -98,7 +101,7 @@ export default function ProjectCard(props) {
 					Learn More
 				</Button>
 				<Button
-					size="large"
+					size="medium"
 					color="primary"
 					href={url}
 					alt="Visit the project website"
@@ -106,7 +109,7 @@ export default function ProjectCard(props) {
 					Project link
 				</Button>
 				<Button
-					size="large"
+					size="medium"
 					color="primary"
 					variant="h2"
 					href={git_url}

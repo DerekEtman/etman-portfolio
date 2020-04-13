@@ -23,10 +23,16 @@ import {
 
 // const useStyles = makeStyles((theme) =>
 const useStyles = makeStyles((theme) => ({
-	root: {},
+	root: {
+		backgroundColor:"black",
+
+	},
 	resumeContact: {
 		border: "none",
 		padding: "1%",
+		backgroundColor:"black",
+		color:"white",
+
 	},
 	skillsSection: {
 		// border: "1px solid green",
@@ -35,27 +41,35 @@ const useStyles = makeStyles((theme) => ({
 		// flexDirection: "column",
 		paddingTop: "1%",
 		boxShadow: "none",
+		backgroundColor:"black",
+		color:"white",
 	},
 	experienceSection: {
 		paddingTop: "1%",
 		border: "none",
 		boxShadow: "none",
+		backgroundColor:"black",
+		color:"white",
 	},
 	educationSection: {
 		paddingTop: "1%",
 		border: "none",
 		boxShadow: "none",
+		backgroundColor:"black",
+		color:"white",
 	},
 	resumeSkills: {
 		border: "none",
 		boxShadow: "none",
-		// border: "1px solid red",
-		// flexDirection: "row",
+		backgroundColor:"black",
+		color:"white",
 	},
 	contactInfo: {
 		width: "100%",
 		margin: "0 auto",
 		justifyContent: "center",
+		backgroundColor:"black",
+		color:"white",
 	},
 	contactAddresses: {
 		// padding: "2%",

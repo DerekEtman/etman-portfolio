@@ -8,7 +8,8 @@ const useStyles = makeStyles((theme) => ({
 		margin: "0 auto",
         border:"none",
 		boxShadow:"none",
-		// fontFamily:"'Bebas Neue', cursive",
+		backgroundColor:"black",
+		color:"white",
 		fontSize:16,
 
 

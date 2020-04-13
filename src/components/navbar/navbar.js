@@ -21,8 +21,8 @@ const useStyles = makeStyles(theme => ({
     // padding: 30,
 	},
 	menuItem: {
-		fontSize: "1.6rem",
-		padding: "1rem 3rem"
+		// fontSize: "1.6rem",
+		padding: ".5rem 1rem"
 	},
   menuText: {},
   logo_wrapper:{
@@ -133,14 +133,14 @@ export function NavBar() {
 							{" "}
 							Home
 						</MenuItem>
-						<MenuItem
+						{/* <MenuItem
 							className={classes.menuItem}
 							onClick={handleClose}
 							component={Link}
 							to="/sound"
 						>
 							Sound
-						</MenuItem>
+						</MenuItem> */}
 						<MenuItem
 							className={classes.menuItem}
 							onClick={handleClose}
@@ -162,7 +162,7 @@ export function NavBar() {
 							className={classes.menuItem}
 							onClick={handleClose}
 							component={Link}
-							to="/contact"
+							to="/about"
 						>
 							Contact Me
 						</MenuItem>
