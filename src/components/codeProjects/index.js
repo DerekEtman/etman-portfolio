@@ -11,6 +11,7 @@ import saltines_img from "./assets/Saltines_1.png";
 import droom_img from "./assets/Droom_1.png";
 import memefly_img from "./assets/Memefly_1.png";
 import dont_die_img from "./assets/dont_Die_1.png";
+import ncov_19 from "./assets/ncov19_thumbnail_2.png";
 import { code_pic } from "./assets/code_pic.jpg";
 
 const largeProjectData = [
@@ -112,6 +113,20 @@ const largeProjectData = [
 		project_url: "https://droom2019.netlify.com/",
 		git_repo: "https://github.com/build-week-droom/Droom-UI",
 	},
+	{
+		id: 5,
+		thumb_nail: ncov_19,
+		name: "Ncov19.us",
+		project_brief:
+			"Real time Covid-19 dashboard, With mapped country, state, and county data. As well as drive through testing locations.",
+		project_info: [
+			"• Worked with a team of 30 + web devs and data engineers to build one location for US based covid 19 information.",
+			"• Worked with UX to style dashboard in accordance with Figma design.",
+		],
+		tech_stack: ["python", "react", "dash bootstrap", ],
+		project_url: "http://ncov19.us",
+		git_repo: "https://github.com/ncov19-us/front-end",
+	}
 ];
 
 const dayProjectData = [
@@ -191,7 +206,7 @@ export default function codePage() {
 					</Grid>
 				</div>
 
-				<div className={classes.media_container}>
+				{/* <div className={classes.media_container}>
 					<Typography>
 						<h1>DAY PROJECTS</h1>
 					</Typography>
@@ -218,7 +233,7 @@ export default function codePage() {
 							})}
 						</Grid>
 					</Grid>
-				</div>
+				</div> */}
 			</Container>
 		</div>
 	);
