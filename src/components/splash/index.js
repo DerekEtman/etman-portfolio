@@ -7,30 +7,30 @@ import { Link } from "@material-ui/core";
 import derek_leaning from "./images/Leaning_no_background_bw.png";
 // import Box from "@material-ui/system";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
-		overflow:"hidden"
+		overflow: "hidden",
 	},
 	paper: {
 		padding: theme.spacing(2),
 		textAlign: "center",
-		color: theme.palette.text.secondary
+		color: theme.palette.text.secondary,
 	},
 	splash_image_wrapper: {
 		// maxWidth:"500px",
-		Width:"75%",
-		overflow:"hidden",
-		padding:"0 !important",
+		Width: "75%",
+		overflow: "hidden",
+		padding: "0 !important",
 	},
 	splash_image: {
-		padding:"0",
-		animation:' kenburns-top-left 30s ease-out both',
-		'-webkit-animation': 'kenburns-top-left 30s ease-out both'
+		padding: "0",
+		animation: " kenburns-top-left 30s ease-out both",
+		"-webkit-animation": "kenburns-top-left 30s ease-out both",
 	},
 	splash_text: {
 		padding: "5rem",
-	}
+	},
 }));
 
 export function MainSplash() {
@@ -58,7 +58,12 @@ export function MainSplash() {
 							</Grid>
 						</Grid>
 
-						<Grid className={classes.splash_image_wrapper} id="splash_image_container" item xs={5}>
+						<Grid
+							className={classes.splash_image_wrapper}
+							id="splash_image_container"
+							item
+							xs={5}
+						>
 							<img className={classes.splash_image} src={derek_leaning} />
 						</Grid>
 					</Grid>
@@ -72,11 +77,29 @@ export function MainSplash() {
 						<Paper elevation={3} className="splash_text">
 							<h2>A Bit About Me</h2>
 							<p>
-								Experienced freelance with a demonstrated history of working in the
-								media production industry. Skilled in all aspects of audio, digital
-								photography, film production, and music composition. Strong professional
-								with a bachelor's degree focused in music theory and composition from
-								California Institute of the Arts.
+								Currently a Full Stack Web Developer leveraging skills and talent
+								learned while working in the media production industry. Strong passion
+								for problem solving and delivering solutions to clients.
+							</p>
+							<h5>Programming languages Include: </h5>
+							<li>JavaScript </li>
+							<li> Python</li>
+							<li> Java,</li>
+							<li>PostgreSQL</li>
+							
+							<h5>Frameworks:</h5>
+							<li>React</li>
+							<li> Spring </li>
+
+							<h5>Libraries:</h5>
+							<li>Redux</li>
+							<li>Fabric.js</li>
+							
+							<p>
+								Skilled in all aspects of audio, digital photography, film production,
+								and music composition. Strong professional with a bachelor's degree
+								focused in music theory and composition from California Institute of the
+								Arts.
 							</p>
 						</Paper>
 					</Grid>
