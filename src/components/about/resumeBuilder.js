@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
 		// padding: "2%",
 		margin: "2%",
 		fontSize: 14,
+		color:"white",
 	},
 	resumeName: {
 		fontFamily:"'Bebas Neue', cursive",
@@ -83,6 +84,10 @@ const useStyles = makeStyles((theme) => ({
 	resumeSectionTitles: {
 		fontFamily:"'Bebas Neue', cursive",
 		fontSize:46,
+	},
+	contactText:{
+		color:"white",
+
 	}
 }));
 
@@ -97,24 +102,24 @@ export default function ResumeBuilder() {
 
 				<Grid container spacing={0} className={classes.contactInfo}>
 					<Typography className={classes.contactAddresses}>
-						<Link>
+						<Link className={classes.contactText}>
 							<MailOutlineIcon /> {contact.email}
 						</Link>
 					</Typography>
 
 					<Typography className={classes.contactAddresses}>
-						<Link href={contact.linkedIn}>
+						<Link href={contact.linkedIn} className={classes.contactText}>
 							<LinkedInIcon /> {contact.linkedIn}
 						</Link>
 					</Typography>
 
 					<Typography className={classes.contactAddresses}>
 						
-						<Link href={contact.personalWebsite}> <WebIcon /> {contact.personalWebsite}</Link>
+						<Link href={contact.personalWebsite} className={classes.contactText}> <WebIcon /> {contact.personalWebsite}</Link>
 					</Typography>
 
 					<Typography className={classes.contactAddresses}>
-						<Link href={contact.gitHub}>
+						<Link href={contact.gitHub} className={classes.contactText}>
 							<GitHubIcon /> {contact.gitHub}
 						</Link>
 					</Typography>

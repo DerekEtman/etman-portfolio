@@ -12,7 +12,7 @@ import {
 	Grid,
 	Link,
 	Icon,
-	Paper
+	Paper,
 } from "@material-ui/core";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
@@ -22,7 +22,7 @@ import WebIcon from "@material-ui/icons/Web";
 import derek from "../splash/images/derek_leaning_no_background.png";
 import resumeBuilder from "./resumeBuilder";
 import { resumeData } from "./resumeData";
-
+import SkillCard from "./skillCard";
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -65,14 +65,14 @@ const useStyles = makeStyles((theme) => ({
 	},
 	tabs: {
 		borderRight: `1px solid ${theme.palette.divider}`,
-		marginTop:".5rem"
+		marginTop: ".5rem",
 	},
 	aboutMeTab: {
 		margin: "0 auto",
 		width: "100%",
 		minHeight: "92vh",
-		backgroundColor:"black",
-		color:"white",
+		backgroundColor: "black",
+		color: "white",
 	},
 	resumeTab: {
 		// border: "1px solid yellow",
@@ -80,45 +80,62 @@ const useStyles = makeStyles((theme) => ({
 		width: "100%",
 		// height: "90vh",
 	},
-	aboutMeWrapper:{
-		backgroundColor:"black",
-		color:"white",
+	aboutMeWrapper: {
+		backgroundColor: "black",
+		color: "white",
 	},
-	aboutHeader:{
-		fontFamily:"'Bebas Neue', cursive",
-
+	aboutHeader: {
+		fontFamily: "'Bebas Neue', cursive",
 	},
-	aboutBody:{
-		padding:"1rem 0",
-		width:"80%",
-		margin:"0 auto",
+	aboutBody: {
+		padding: "1rem 0",
+		width: "80%",
+		margin: "0 auto",
 		fontFamily: "'Montserrat', sans-serif",
 	},
 	contactTab: {
 		margin: "0 auto",
 		width: "100%",
 		minHeight: "92vh",
-		backgroundColor:"black",
-		color:"white",
+		backgroundColor: "black",
+		color: "white",
 	},
 	contactInfo: {
-		width: "100%",
-		margin: "0 auto",
+		width: "80%",
+		margin: "2rem auto",
+		padding: "1rem",
 		justifyContent: "center",
-		backgroundColor:"black",
-		color:"white",
+		backgroundColor: "black",
+		color: "white",
+		border: "1px solid white",
 	},
 	contactAddresses: {
 		// padding: "2%",
 		margin: "2%",
 		fontSize: 14,
 	},
+	techStack: {
+		margin: "0 auto",
+		width: "100%",
+		minHeight: "92vh",
+		backgroundColor: "black",
+		color: "white",
+	},
+	contactText: {
+		color: "white",
+	},
+	techStackSkills:{
+		border: "none",
+		boxShadow: "none",
+		backgroundColor:"black",
+		color:"white",
+	}
 }));
 
 export default function VerticalTabs() {
 	const classes = useStyles();
 	const [value, setValue] = React.useState(0);
-	const { contact} = resumeData;
+	const { contact, skills } = resumeData;
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
@@ -136,13 +153,16 @@ export default function VerticalTabs() {
 			>
 				<Tab className={classes.tabs} label="About Derek" {...a11yProps(0)} />
 				<Tab className={classes.tabs} label="Resume" {...a11yProps(1)} />
-				<Tab className={classes.tabs} label="Contact"  {...a11yProps(2)}/>
+				<Tab className={classes.tabs} label="Tech Stack" {...a11yProps(3)} />
+				<Tab className={classes.tabs} label="Contact" {...a11yProps(2)} />
 			</Tabs>
 
 			{/* First Tab - About Me */}
 			<TabPanel value={value} index={0} className={classes.aboutMeTab}>
 				<Paper className={classes.aboutMeWrapper}>
-					<Typography variant="h3" className={classes.aboutHeader}>This is me.</Typography>
+					<Typography variant="h3" className={classes.aboutHeader}>
+						This is me...
+					</Typography>
 					<Typography variant="body1" className={classes.aboutBody}>
 						As crucial as it is, the ability to create music is not enough today;
 						while I might not have been aware then, everything I've done as a musician
@@ -209,38 +229,62 @@ export default function VerticalTabs() {
 				{resumeBuilder}
 			</TabPanel>
 
-			<TabPanel value={value} index={2} className={classes.contactTab} id="contactTabID">
+			{/* Third Tab - Tech Stack Tab*/}
+			<TabPanel value={value} index={2} className={classes.techStack}>
 				<Typography variant="h3" className={classes.aboutHeader}>
-					Feel free to contact me at through any one of these.
+					Current Tech Stack...
+				</Typography>
+
+				<Card className={classes.skillsSection}>
+				{/* <Typography variant="h3 " className={classes.resumeSectionTitles}>Skills</Typography> */}
+
+				<CardContent className={classes.techStackSkills}>
+					<Grid container spacing={0}>
+						{skills.coding.map((skill) => {
+							return <SkillCard codingSkill={skill} />;
+						})}
+					</Grid>
+				</CardContent>
+			</Card>
+			</TabPanel>
+
+			{/* Fourth Tab - Contact Tab */}
+			<TabPanel
+				value={value}
+				index={3}
+				className={classes.contactTab}
+				id="contactTabID"
+			>
+				<Typography variant="h3" className={classes.aboutHeader}>
+					Feel free to contact me at through any one of these...
 				</Typography>
 
 				<Grid container spacing={0} className={classes.contactInfo}>
 					<Typography className={classes.contactAddresses}>
-						<Link>
+						<Link className={classes.contactText}>
 							<MailOutlineIcon /> {contact.email}
 						</Link>
 					</Typography>
 
 					<Typography className={classes.contactAddresses}>
-						<Link href={contact.linkedIn}>
+						<Link href={contact.linkedIn} className={classes.contactText}>
 							<LinkedInIcon /> {contact.linkedIn}
 						</Link>
 					</Typography>
 
 					<Typography className={classes.contactAddresses}>
-						
-						<Link href={contact.personalWebsite}> <WebIcon /> {contact.personalWebsite}</Link>
+						<Link href={contact.personalWebsite} className={classes.contactText}>
+							{" "}
+							<WebIcon /> {contact.personalWebsite}
+						</Link>
 					</Typography>
 
 					<Typography className={classes.contactAddresses}>
-						<Link href={contact.gitHub}>
+						<Link href={contact.gitHub} className={classes.contactText}>
 							<GitHubIcon /> {contact.gitHub}
 						</Link>
 					</Typography>
 				</Grid>
-
-
-
 			</TabPanel>
 		</div>
 	);
