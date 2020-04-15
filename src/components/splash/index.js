@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
 		overflow: "hidden",
+		height:"auto"
 	},
 	paper: {
 		padding: theme.spacing(2),
@@ -53,7 +54,7 @@ export function MainSplash() {
 									AUDIO
 								</Link> */}
 								<Link href="/about" id="splash_nav" className="splash_link">
-									MORE
+									ABOUT ME
 								</Link>
 							</Grid>
 						</Grid>
@@ -94,7 +95,7 @@ export function MainSplash() {
 							<h5>Libraries:</h5>
 							<li>Redux</li>
 							<li>Fabric.js</li>
-							
+
 							<p>
 								Skilled in all aspects of audio, digital photography, film production,
 								and music composition. Strong professional with a bachelor's degree
