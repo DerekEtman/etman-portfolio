@@ -87,6 +87,11 @@ const useStyles = makeStyles((theme) => ({
 	aboutHeader: {
 		fontFamily: "'Bebas Neue', cursive",
 	},
+	aboutBodyWrapper:{
+		border:"1px solid white",
+		margin:"1rem 0",
+		borderRadius:"5px",
+	},
 	aboutBody: {
 		padding: "1rem 0",
 		width: "80%",
@@ -107,7 +112,8 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: "center",
 		backgroundColor: "black",
 		color: "white",
-		border: "1px solid white",
+		border:"1px solid white",
+		borderRadius:"5px",
 	},
 	contactAddresses: {
 		// padding: "2%",
@@ -129,6 +135,9 @@ const useStyles = makeStyles((theme) => ({
 		boxShadow: "none",
 		backgroundColor:"black",
 		color:"white",
+		border:"1px solid white",
+		borderRadius:"5px",
+
 	}
 }));
 
@@ -163,6 +172,7 @@ export default function VerticalTabs() {
 					<Typography variant="h3" className={classes.aboutHeader}>
 						This is me...
 					</Typography>
+					<div className={classes.aboutBodyWrapper}>
 					<Typography variant="body1" className={classes.aboutBody}>
 						As crucial as it is, the ability to create music is not enough today;
 						while I might not have been aware then, everything I've done as a musician
@@ -221,6 +231,7 @@ export default function VerticalTabs() {
 						Since I love learning and there are so many experiences to be had with
 						coding, I’ll be here a while.
 					</Typography>
+					</div>
 				</Paper>
 			</TabPanel>
 
