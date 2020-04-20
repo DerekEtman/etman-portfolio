@@ -75,10 +75,8 @@ const useStyles = makeStyles((theme) => ({
 		color: "white",
 	},
 	resumeTab: {
-		// border: "1px solid yellow",
 		margin: "0 auto",
 		width: "100%",
-		// height: "90vh",
 	},
 	aboutMeWrapper: {
 		backgroundColor: "black",
