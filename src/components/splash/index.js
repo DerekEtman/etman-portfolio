@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
 		overflow: "hidden",
-		height:"auto"
+		height: "auto",
 	},
 	paper: {
 		padding: theme.spacing(2),
@@ -31,6 +31,13 @@ const useStyles = makeStyles((theme) => ({
 	},
 	splash_text: {
 		padding: "5rem",
+	},
+	splashLanguages: {
+		display: "flex",
+	},
+	stackSections: {
+		padding: "0 2rem",
+		margin: "0 auto",
 	},
 }));
 
@@ -82,19 +89,27 @@ export function MainSplash() {
 								learned while working in the media production industry. Strong passion
 								for problem solving and delivering solutions to clients.
 							</p>
-							<h5>Programming languages Include: </h5>
-							<li>JavaScript </li>
-							<li> Python</li>
-							<li> Java,</li>
-							<li>PostgreSQL</li>
-							
-							<h5>Frameworks:</h5>
-							<li>React</li>
-							<li> Spring </li>
+							<h5> Current Stack Includes:</h5>
+							<div className={classes.splashLanguages}>
+								<div className={classes.stackSections}>
+									<h5>Languages </h5>
+									<li>JavaScript </li>
+									<li> Python</li>
+									<li> Java,</li>
+									<li>PostgreSQL</li>
+								</div>
 
-							<h5>Libraries:</h5>
-							<li>Redux</li>
-							<li>Fabric.js</li>
+								<div className={classes.stackSections}>
+									<h5>Frameworks</h5>
+									<li>React</li>
+									<li> Spring </li>
+								</div>
+								<div className={classes.stackSections}>
+									<h5>Libraries</h5>
+									<li>Redux</li>
+									<li>Fabric.js</li>
+								</div>
+							</div>
 
 							<p>
 								Skilled in all aspects of audio, digital photography, film production,
