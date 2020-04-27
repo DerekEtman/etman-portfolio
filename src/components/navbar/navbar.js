@@ -158,14 +158,14 @@ export function NavBar() {
 						>
 							About Me
 						</MenuItem>
-						<MenuItem
+						{/* <MenuItem
 							className={classes.menuItem}
 							onClick={handleClose}
 							component={Link}
 							to="/about"
 						>
 							Contact Me
-						</MenuItem>
+						</MenuItem> */}
 					</Menu>
 
 					{/* <Typography variant="h6" color="inherit" className={classes.menuText} component={Link} to="/">
