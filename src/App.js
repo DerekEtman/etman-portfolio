@@ -9,11 +9,13 @@ import {Switch, Route} from 'react-router-dom';
 import aboutPage from './components/about/aboutPage';
 import soundPage from './components/soundProjects';
 import codePage from './components/codeProjects';
+import NavDrawer from './components/navbar/navDrawer';
 
 function App() {
   return (
     <Switch>
       <div className="App">
+        {/* <NavDrawer /> */}
         <NavBar />
         <Route exact path="/" component={MainSplash}/>
         <Route path="/code" component={codePage}/>
