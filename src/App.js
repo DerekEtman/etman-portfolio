@@ -15,7 +15,6 @@ function App() {
   return (
     <Switch>
       <div className="App">
-        {/* <NavDrawer /> */}
         <NavBar />
         <Route exact path="/" component={MainSplash}/>
         <Route path="/code" component={codePage}/>
