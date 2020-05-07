@@ -21,7 +21,6 @@ export default function SoundPage() {
 				<br />
 				<h1> Under Construction </h1>
 				<h2>Home page for all things audio</h2>
-				<h2>~Coming soon~</h2>
 				<br />
 			</div>
 		</div>
