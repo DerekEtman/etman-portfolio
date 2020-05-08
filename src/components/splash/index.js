@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: "0 2rem",
 		margin: "0 auto",
 	},
+
 }));
 
 export function MainSplash() {
