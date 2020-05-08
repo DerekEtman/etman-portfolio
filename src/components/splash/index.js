@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: "0 2rem",
 		margin: "0 auto",
 	},
+
 }));
 
 export function MainSplash() {
@@ -61,7 +62,7 @@ export function MainSplash() {
 									AUDIO
 								</Link> */}
 								<Link href="/about" id="splash_nav" className="splash_link">
-									ABOUT ME
+									ABOUT
 								</Link>
 							</Grid>
 						</Grid>
