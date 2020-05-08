@@ -62,7 +62,7 @@ export function MainSplash() {
 									AUDIO
 								</Link> */}
 								<Link href="/about" id="splash_nav" className="splash_link">
-									ABOUT ME
+									ABOUT
 								</Link>
 							</Grid>
 						</Grid>
