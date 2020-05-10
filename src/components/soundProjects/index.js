@@ -21,6 +21,13 @@ export default function SoundPage() {
 				<br />
 				<h1> Under Construction </h1>
 				<h2>Home page for all things audio</h2>
+				<p> I also do music</p>
+				<h4> Sections I want to build for in here</h4>
+				<ul>
+					<li>Link to projects worked on, like before</li>
+					<li> Music library section downloadable</li>
+					<li>SFX library section</li>
+				</ul>
 				<br />
 			</div>
 		</div>
