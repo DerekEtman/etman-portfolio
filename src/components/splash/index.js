@@ -34,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	splashLanguages: {
 		display: "flex",
+		flexFlow:"row wrap",
+		
 	},
 	stackSections: {
 		padding: "0 2rem",
@@ -73,7 +75,7 @@ export function MainSplash() {
 							item
 							xs={5}
 						>
-							<img className={classes.splash_image} src={derek_leaning} />
+							<img className={classes.splash_image} alt="Derek Etman" src={derek_leaning} />
 						</Grid>
 					</Grid>
 				</Container>
