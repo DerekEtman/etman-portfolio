@@ -55,15 +55,12 @@ export default function Footer() {
 				</a>
 
 				<a href="https://github.com/DerekEtman">
-					{" "}
 					<GitHubIcon fontSize="large" className={classes.social_icon}/>
 				</a>
 				<a href="https://twitter.com/DerekEtman">
-					{" "}
 					<TwitterIcon fontSize="large" className={classes.social_icon}/>
 				</a>
 				<a href="https://www.instagram.com/dereketman">
-					{" "}
 					<InstagramIcon fontSize="large" className={classes.social_icon}/>
 				</a>
 			</div>
