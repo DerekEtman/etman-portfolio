@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Belgrano|Montserrat&display=swap');
 
@@ -8,6 +7,11 @@ html{
   // font-size: 62.5%;
   font-family: 'Montserrat', sans-serif;
 }
+
+$mobile: "only screen and (max-width: 500px)";
+$tablet: "only screen and (max-width: 700px)";
+$desktop: "only screen and (min-width: 701px)";
+$phablet: 650px;
 
 :root{
   --splash-header-1:'Belgrano', serif;
@@ -19,9 +23,6 @@ html{
   --blue-grey: #8AA1B1;
   --black: #282c34;
   --yellow: #FFCB47;
-
-  // font-size: 10px;
-
 }
 
  ::-webkit-scrollbar {
@@ -186,7 +187,7 @@ html{
     }
   }
 
-  @media only screen and (max-width:634px) {
+  @media only screen and (max-width:$phablet) {
     .MainSplashContainer{
       height:"auto";
       padding-bottom:0 ;
@@ -234,6 +235,7 @@ html{
     
   }
 }
+
 
 .nav_menu{
   background-color: green($color: #000000);
