@@ -157,8 +157,9 @@ export default function VerticalTabs() {
 			>
 				<Tab className={classes.tabs} label="About Derek" {...a11yProps(0)} />
 				<Tab className={classes.tabs} label="Resume" {...a11yProps(1)} />
+				<Tab className={classes.tabs} label="Code Project Info" {...a11yProps(2)} />
 				<Tab className={classes.tabs} label="Tech Stack" {...a11yProps(3)} />
-				<Tab className={classes.tabs} label="Contact" {...a11yProps(2)} />
+				<Tab className={classes.tabs} label="Contact" {...a11yProps(3)} />
 			</Tabs>
 
 			{/* First Tab - About Me */}
@@ -237,8 +238,20 @@ export default function VerticalTabs() {
 				{resumeBuilder}
 			</TabPanel>
 
+			{/* Project info tab */}
+			<TabPanel
+				value={value}
+				index={2}
+				className={classes.contactTab}
+				id="contactTabID"
+			>
+				<Typography variant="h3" className={classes.aboutHeader}>
+					Feel free to contact me at through any one of these...
+				</Typography>
+			</TabPanel>
+
 			{/* Third Tab - Tech Stack Tab*/}
-			<TabPanel value={value} index={2} className={classes.techStack}>
+			<TabPanel value={value} index={3} className={classes.techStack}>
 				<Typography variant="h3" className={classes.aboutHeader}>
 					Current Tech Stack...
 				</Typography>
@@ -259,7 +272,7 @@ export default function VerticalTabs() {
 			{/* Fourth Tab - Contact Tab */}
 			<TabPanel
 				value={value}
-				index={3}
+				index={4}
 				className={classes.contactTab}
 				id="contactTabID"
 			>
@@ -294,6 +307,9 @@ export default function VerticalTabs() {
 					</Typography>
 				</Grid>
 			</TabPanel>
+			
+
+
 		</div>
 	);
 }
