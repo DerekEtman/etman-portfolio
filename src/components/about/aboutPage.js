@@ -19,10 +19,11 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import WebIcon from "@material-ui/icons/Web";
 
-import derek from "../splash/images/derek_leaning_no_background.png";
+
 import resumeBuilder from "./resumeBuilder";
 import { resumeData } from "./resumeData";
 import SkillCard from "./skillCard";
+import ProjectCard from "../codeProjects/projectCard";
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -157,8 +158,9 @@ export default function VerticalTabs() {
 			>
 				<Tab className={classes.tabs} label="About Derek" {...a11yProps(0)} />
 				<Tab className={classes.tabs} label="Resume" {...a11yProps(1)} />
+				<Tab className={classes.tabs} label="Code Project Info" {...a11yProps(2)} />
 				<Tab className={classes.tabs} label="Tech Stack" {...a11yProps(3)} />
-				<Tab className={classes.tabs} label="Contact" {...a11yProps(2)} />
+				<Tab className={classes.tabs} label="Contact" {...a11yProps(3)} />
 			</Tabs>
 
 			{/* First Tab - About Me */}
@@ -237,8 +239,32 @@ export default function VerticalTabs() {
 				{resumeBuilder}
 			</TabPanel>
 
+			{/* Project info tab */}
+			<TabPanel
+				value={value}
+				index={2}
+				className={classes.contactTab}
+				id="contactTabID"
+			>
+						<Grid item xs={12} container="true">
+							{resumeData.projects.map((project) => {
+								return (
+									<ProjectCard
+										key={project.id}
+										image_url={project.thumb_nail}
+										name={project.name}
+										brief={project.project_brief}
+										info={project.project_info}
+										url={project.project_url}
+										git_url={project.git_repo}
+									/>
+								);
+							})}
+						</Grid>
+			</TabPanel>
+
 			{/* Third Tab - Tech Stack Tab*/}
-			<TabPanel value={value} index={2} className={classes.techStack}>
+			<TabPanel value={value} index={3} className={classes.techStack}>
 				<Typography variant="h3" className={classes.aboutHeader}>
 					Current Tech Stack...
 				</Typography>
@@ -259,7 +285,7 @@ export default function VerticalTabs() {
 			{/* Fourth Tab - Contact Tab */}
 			<TabPanel
 				value={value}
-				index={3}
+				index={4}
 				className={classes.contactTab}
 				id="contactTabID"
 			>
@@ -294,6 +320,9 @@ export default function VerticalTabs() {
 					</Typography>
 				</Grid>
 			</TabPanel>
+			
+
+
 		</div>
 	);
 }
