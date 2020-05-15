@@ -19,10 +19,11 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import WebIcon from "@material-ui/icons/Web";
 
-import derek from "../splash/images/derek_leaning_no_background.png";
+
 import resumeBuilder from "./resumeBuilder";
 import { resumeData } from "./resumeData";
 import SkillCard from "./skillCard";
+import ProjectCard from "../codeProjects/projectCard";
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -245,9 +246,21 @@ export default function VerticalTabs() {
 				className={classes.contactTab}
 				id="contactTabID"
 			>
-				<Typography variant="h3" className={classes.aboutHeader}>
-					Feel free to contact me at through any one of these...
-				</Typography>
+						<Grid item xs={12} container="true">
+							{resumeData.projects.map((project) => {
+								return (
+									<ProjectCard
+										key={project.id}
+										image_url={project.thumb_nail}
+										name={project.name}
+										brief={project.project_brief}
+										info={project.project_info}
+										url={project.project_url}
+										git_url={project.git_repo}
+									/>
+								);
+							})}
+						</Grid>
 			</TabPanel>
 
 			{/* Third Tab - Tech Stack Tab*/}
