@@ -86,9 +86,9 @@ export function MainSplash() {
 				<Container maxWidth="xl">
 					<Grid>
 						<Paper elevation={3} className="splash_text">
-							<h2>A Bit About Me</h2>
+							<h2>A Bit About Derek</h2>
 							<p>
-								Currently a Full Stack Web Developer leveraging skills and talent
+								Derek is a Full Stack Web Developer leveraging skills and talent
 								learned while working in the media production industry. Strong passion
 								for problem solving and delivering solutions to clients.
 							</p>
