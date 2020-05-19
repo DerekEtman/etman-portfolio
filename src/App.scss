@@ -17,6 +17,9 @@ $phablet: 650px;
   --splash-header-1:'Belgrano', serif;
   --splash-header-2:'Belgrano', serif;
   --splash-body-1: 'Montserrat', sans-serif;
+  --splash-links:'Bebas Neue', cursive;
+
+  --header-bebas:'Bebas Neue', cursive;
 
   --green:#B9D8C2;
   --light-blue:#9AC2C9;
@@ -145,6 +148,7 @@ $phablet: 650px;
     .splash_link{
       -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530).3s both;
       animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530).3s both;
+      
     }
 
   }
