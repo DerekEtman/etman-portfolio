@@ -95,22 +95,23 @@ export function MainSplash() {
 							<h5> Current Stack Includes:</h5>
 							<div className={classes.splashLanguages}>
 								<div className={classes.stackSections}>
-									<h5>Languages </h5>
-									<li>JavaScript </li>
-									<li> Python</li>
-									<li> Java,</li>
+									<h5>Languages</h5>
+									<li>JavaScript</li>
+									<li>Python</li>
+									<li>Java</li>
 									<li>PostgreSQL</li>
 								</div>
 
 								<div className={classes.stackSections}>
 									<h5>Frameworks</h5>
 									<li>React</li>
-									<li> Spring </li>
+									<li>Spring </li>
 								</div>
 								<div className={classes.stackSections}>
 									<h5>Libraries</h5>
 									<li>Redux</li>
 									<li>Fabric.js</li>
+									<li>D3.js</li>
 								</div>
 							</div>
 
