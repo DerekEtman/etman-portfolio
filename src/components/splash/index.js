@@ -112,6 +112,7 @@ export function MainSplash() {
 									<li>Redux</li>
 									<li>Fabric.js</li>
 									<li>D3.js</li>
+									<li>Tone.js</li>
 								</div>
 							</div>
 
