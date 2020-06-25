@@ -194,7 +194,7 @@ export const resumeData = {
 					"• Proposed and built out food nutrition finder based on USFDA nutrition API.",
 				],
 				tech_stack: [],
-				project_url: "https://insuline.netlify.com/",
+				project_url: "https://insuline-diabetes.netlify.app/",
 				git_repo: "https://github.com/Build-Week-Diabetes-Manager",
 			},
 			{
