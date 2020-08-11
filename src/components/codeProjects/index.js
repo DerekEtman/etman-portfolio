@@ -27,7 +27,7 @@ const largeProjectData = [
 			"• Handled delegation of tasks and breakdown of product releases over a 2+ month period.",
 		],
 		tech_stack: [],
-		project_url: "memeflyreboot.netlify.app",
+		project_url: "https://memeflyreboot.netlify.app",
 		git_repo: "https://github.com/Lambda-School-Labs/memefly-fe.git",
 	},
 	{
