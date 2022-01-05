@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Belgrano|Montserrat&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswaldzdisplay=swap');
 // font-family: 'Belgrano', serif;
 // font-family: 'Montserrat', sans-serif;
 html{
@@ -14,17 +14,17 @@ $desktop: "only screen and (min-width: 701px)";
 $phablet: 650px;
 
 :root{
-  --splash-header-1:'Belgrano', serif;
+  --splash-header-1:'Oswald', sans-serif;
   --splash-header-2:'Belgrano', serif;
   --splash-body-1: 'Montserrat', sans-serif;
   --splash-links:'Bebas Neue', cursive;
 
   --header-bebas:'Bebas Neue', cursive;
-
+  --white: #fff;
   --green:#B9D8C2;
   --light-blue:#9AC2C9;
   --blue-grey: #8AA1B1;
-  --black: #282c34;
+  --black: #000;
   --yellow: #FFCB47;
 }
 
@@ -53,9 +53,19 @@ $phablet: 650px;
 
 /*-------------App------------  */
 
+body{
+  // font: var(--splash-body-1);
+  color: var(--white);
+}
+
+h1,h2,h3{
+  font: var(--splash-header-1);
+  font-weight: 900;
+}
+
 .App {
   text-align: center;
-  // background-color: var(--yellow);
+  background-color: var(--black);
 }
 
 .App-logo {
@@ -89,7 +99,7 @@ $phablet: 650px;
   // margin:9% 0;
   padding: 2rem 0 3rem;
   z-index: 1;
-  background-color: var(--yellow);
+  background-color: var(--white);
   overflow: hidden;
   
   .Splash_Container{

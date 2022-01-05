@@ -9,7 +9,6 @@ import {Switch, Route} from 'react-router-dom';
 import aboutPage from './components/about/aboutPage';
 import soundPage from './components/soundProjects';
 import codePage from './components/codeProjects';
-import NavDrawer from './components/navbar/navDrawer';
 import Footer from './components/footer';
 
 function App() {
