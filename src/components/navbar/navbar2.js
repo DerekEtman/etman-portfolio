@@ -1,19 +1,14 @@
-import {
-	AppBar, Drawer, IconButton, Toolbar
-} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import React, { useState } from "react";
+import React  from "react";
 import { Link } from "react-router-dom";
 import logo from "./assets/Derek-Logo-black-full-1.png";
-import NavList from "./navList";
 
 
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
-		zIndex:999,
+		zIndex: 999,
 	},
 	menuButton: {
 		marginRight: theme.spacing(2),
@@ -41,21 +36,21 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export function NavBar() {
+export function NavBar2() {
 	const classes = useStyles();
 
-	const [anchorElement, setAnchorElement] = useState(null);
-	const handleClick = (e) => {
-		setAnchorElement(e.currentTarget);
-	};
+	// const [anchorElement, setAnchorElement] = useState(null);
+	// const handleClick = (e) => {
+	// 	setAnchorElement(e.currentTarget);
+	// };
 
-	const handleClose = () => {
-		setAnchorElement(null);
-	};
+	// const handleClose = () => {
+	// 	setAnchorElement(null);
+	// };
 
 	return (
 		<div className={classes.root}>
-			<AppBar position="static" color="transparent" elevation={0}>
+			{/* <AppBar position="static" color="transparent" elevation={0}>
 				<Toolbar variant="dense">
 					<IconButton
 						edge="start"
@@ -69,15 +64,20 @@ export function NavBar() {
 
 					<Drawer anchor="left" open={Boolean(anchorElement)} onClose={handleClose}>
 						<a href="/" className={classes.logo_wrapper}>
-							<img src={logo} component={Link} className={classes.logo} alt="Logo that says DerekEtman"/>
+							<img src={logo} component={Link} className={classes.logo} />
 						</a>
 						<NavList />
 					</Drawer>
 					<a href="/" className={classes.logo_wrapper}>
-						<img src={logo} component={Link} className={classes.logo} alt="Logo that says DerekEtman"/>
+						<img src={logo} component={Link} className={classes.logo} />
 					</a>
 				</Toolbar>
-			</AppBar>
+			</AppBar> */}
+
+
+			<a href="/" className={classes.logo_wrapper}>
+				<img src={logo} component={Link} className={classes.logo} alt="Logo that says DerekEtman" />
+			</a>
 		</div>
 	);
 }
