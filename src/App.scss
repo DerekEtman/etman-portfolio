@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Belgrano|Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswaldzdisplay=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 // font-family: 'Belgrano', serif;
 // font-family: 'Montserrat', sans-serif;
 html{
@@ -11,7 +11,7 @@ html{
 $mobile: "only screen and (max-width: 500px)";
 $tablet: "only screen and (max-width: 700px)";
 $desktop: "only screen and (min-width: 701px)";
-$phablet: 650px;
+$tablet: 650px;
 
 :root{
   --splash-header-1:'Oswald', sans-serif;
@@ -56,6 +56,7 @@ $phablet: 650px;
 body{
   // font: var(--splash-body-1);
   color: var(--white);
+  background-color: var(--black);
 }
 
 h1,h2,h3{
@@ -65,7 +66,6 @@ h1,h2,h3{
 
 .App {
   text-align: center;
-  background-color: var(--black);
 }
 
 .App-logo {
@@ -173,9 +173,6 @@ h1,h2,h3{
     #Splash_Message2{
       font-size: 4rem;
     }
-    #splash_nav{
-      // font-size: 4rem;
-    }
   }
 
   @media only screen and (max-width:1092px) {
@@ -201,7 +198,7 @@ h1,h2,h3{
     }
   }
 
-  @media only screen and (max-width:$phablet) {
+  @media only screen and (max-width:$tablet) {
     .MainSplashContainer{
       height:"auto";
       padding-bottom:0 ;

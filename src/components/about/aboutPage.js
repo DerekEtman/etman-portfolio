@@ -11,7 +11,6 @@ import {
 	CardContent,
 	Grid,
 	Link,
-	Icon,
 	Paper,
 } from "@material-ui/core";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
