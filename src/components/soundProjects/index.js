@@ -1,18 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Grid, ImageList, ImageListItem, makeStyles } from "@material-ui/core";
+import { Box, Grid, ImageList, ImageListItem, makeStyles } from "@material-ui/core";
 import PianoImage from "./assets/piano.jpg";
 import useContentful from "../../hooks/useContentful";
 import { CompareSharp } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   container: {
+    width:"100%",
     backgroundColor: "Black",
     color: "white",
-    height: "90vh",
+    minHeight: "100vh",
     fontFamily: "'Bebas Neue', cursive",
     // backgroundImage: `url(${PianoImage})`,
-    backgroundSize: "300%",
-    backgroundPosition: "center",
+    // backgroundSize: "300%",
+    // backgroundPosition: "center",
   },
   textWrapper: {
     padding: "2%",
@@ -28,12 +29,13 @@ function createCard(asset) {
   } = asset.fields;
 
   const{ file:{url: thubnailURL}} = thumbnailImage.fields
-  console.log("create card", asset);
+
+  console.log("create card", thumbnailImage.fields);
 
   return (
     <ImageListItem key={url}>
       {/* <p>{title}</p> */}
-      <img src={thubnailURL}/>
+      <img src={thubnailURL} alt={fileName}/>
     </ImageListItem>
   );
 }
@@ -44,9 +46,9 @@ export default function SoundPage() {
   const [entriesList, setEntriesList] = useState([]);
 
   useEffect(() => {
-    getAssets()
-      .then((response) => setAssetList(response.items))
-      .catch((err) => console.log(err));
+    // getAssets()
+    //   .then((response) => setAssetList(response.items))
+    //   .catch((err) => console.log(err));
 
     getEntries()
       .then((response) => setEntriesList(response.items))
@@ -64,6 +66,7 @@ export default function SoundPage() {
   const classes = useStyles();
 
   return (
+    <Box>
     <Grid container className={classes.container}>
       <Grid item xs={2}>
         Filter Nav
@@ -79,5 +82,6 @@ export default function SoundPage() {
         </ImageList>
       </Grid>
     </Grid>
+    </Box>
   );
 }
