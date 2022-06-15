@@ -1,7 +1,6 @@
-import React from "react";
-import Chip from "@material-ui/core/Chip";
+import { Card, CardContent, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Card, CardContent } from "@material-ui/core";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
 	skillContainer: {

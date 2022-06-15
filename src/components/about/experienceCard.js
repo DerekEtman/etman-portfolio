@@ -14,13 +14,7 @@ const useStyles = makeStyles((theme) => ({
 	CardHeader: {
 		fontFamily:"'Bebas Neue', cursive",
 		fontSize:16,
-	},
-	CardHeader: {
-		fontFamily: "'Bebas Neue', cursive",
-
-	},
-	
-
+	}
 }));
 
 export default function ExperienceCard(props) {

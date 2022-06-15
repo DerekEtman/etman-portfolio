@@ -19,14 +19,30 @@ const useStyles = makeStyles((theme) => ({
 	menuText: {},
 	logo_wrapper: {
 		width: "100%",
-		maxWidth: "300px",
-		margin: " 0 auto",
+		maxWidth: "100px",
+		margin: " .5% auto 1%",
 		display: "flex",
 		justifyContent: "center",
+
 	},
-	logo: {
-		maxWidth: "50%",
-		margin: "1rem 0",
+	logo_style: {
+		maxWidth: "25%",
+		// margin: "1rem 0",
+		// padding:"2% 0",		
+		hover:{
+		'&:hover':{
+			borderRadius: '50',
+			boxShadow:
+			   `inset 0 0 50px #fff,      /* inner white */
+				inset 20px 0 80px #f0f,   /* inner left magenta short */
+				inset -20px 0 80px #0ff,  /* inner right cyan short */
+				inset 20px 0 300px #f0f,  /* inner left magenta broad */
+				inset -20px 0 300px #0ff, /* inner right cyan broad */
+				0 0 50px #fff,            /* outer white */
+				-10px 0 80px #f0f,        /* outer left magenta */
+				10px 0 80px #0ff `
+		}
+	}
 	},
 	list: {
 		width: 250,
@@ -38,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 
 export function NavBar2() {
 	const classes = useStyles();
+	const {root, logo_style, hover} = classes
 
 	// const [anchorElement, setAnchorElement] = useState(null);
 	// const handleClick = (e) => {
@@ -49,7 +66,7 @@ export function NavBar2() {
 	// };
 
 	return (
-		<div className={classes.root}>
+		<div className={root}>
 			{/* <AppBar position="static" color="transparent" elevation={0}>
 				<Toolbar variant="dense">
 					<IconButton
@@ -76,7 +93,7 @@ export function NavBar2() {
 
 
 			<a href="/" className={classes.logo_wrapper}>
-				<img src={logo} component={Link} className={classes.logo} alt="Logo that says DerekEtman" />
+				<img src={logo} component={Link} width={"150px"} alt="Logo that says DerekEtman" />
 			</a>
 		</div>
 	);

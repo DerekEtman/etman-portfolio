@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
-		height: "75vh",
+		height: "65vh",
 		// width: "100%",
 		overflow: "hidden",
 

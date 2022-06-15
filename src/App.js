@@ -9,21 +9,20 @@ import { NavBar2 } from "./components/navbar/navbar2";
 import soundPage from "./components/soundProjects";
 import { MainSplash } from "./components/splash";
 
-
 function App() {
-	return (
-		<Switch>
-			<div className="App">
-				<NavBar2 />
-				<Route exact path="/" component={MainSplash} />
-				<Route path="/code" component={codePage} />
-				<Route path="/sound" component={soundPage} />
-				<Route path="/about" component={aboutPage} />
-				<Route path="/contact" component={ContactPage} />
-				<Footer />
-			</div>
-		</Switch>
-	);
+  return (
+    <Switch>
+      <main className="App">
+        <NavBar2 />
+        <Route exact path="/" component={MainSplash} />
+        <Route path="/code" component={codePage} />
+        <Route path="/sound" component={soundPage} />
+        <Route path="/about" component={aboutPage} />
+        <Route path="/contact" component={ContactPage} />
+        <Footer />
+      </main>
+    </Switch>
+  );
 }
 
 export default App;
