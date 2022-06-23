@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     animationDuration:'10000ms',
     animationIterationCount:'infinite',
     animationTimingFunction:'linear',
-    transformOrigin:'50px 60px'
+    // transformOrigin:'50px 60px'
   },
   '@keyframes spin': {
     "0%": {
@@ -96,7 +96,7 @@ export default function Splash_2() {
           DEREK
         </h1>
         <h1 className={classes.huge}>ETMAN</h1>
-        <h1 className={`${classes.huge} ${classes.spin}`}>*</h1>
+        {/* <h1 className={`${classes.huge} ${classes.spin}`}>*</h1> */}
       </Grid>
       <Grid item>
         <h3>*Under renovation.</h3>
