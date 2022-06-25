@@ -8,7 +8,7 @@ import React from "react";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		backgroundColor: "black",
+		backgroundColor: "none",
 		fontFamily: "'Bebas Neue', cursive",
 		color: "white",
 	},
