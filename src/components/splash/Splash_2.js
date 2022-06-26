@@ -12,6 +12,14 @@ import {
 import React, { useEffect, useState } from "react";
 import { Info, InfoOutlined } from "@material-ui/icons";
 
+const textShadowCollection = [
+  {
+    textShadow:
+      "0px -6px 0 #212121, 0px -6px 0 #212121, 0px  6px 0 #212121, 0px  6px 0 #212121,-6px  0px 0 #212121,  6px  0px 0 #212121,-6px  0px 0 #212121,    6px  0px 0 #212121,-6px -6px 0 #212121,  6px -6px 0 #212121,-6px  6px 0 #212121,6px  6px 0 #212121,-6px  18px 0 #212121,0px  18px 0 #212121,6px  18px 0 #212121,0 19px 1px rgba(0,0,0,.1),0 0 6px rgba(0,0,0,.1),0 6px 3px rgba(0,0,0,.3),0 12px 6px rgba(0,0,0,.2),0 18px 18px rgba(0,0,0,.25),0 24px 24px rgba(0,0,0,.2),0 36px 36px rgba(0,0,0,.15)",
+  },
+  { textShadow: "-15px 5px 20px #ced0d3" },
+];
+
 const useStyles = makeStyles((theme) => ({
   container: {
     height: "72vh",
@@ -33,8 +41,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "max(5vw,12.5vw)",
     margin: "10vh auto",
     height: "50%",
-    // textShadow:" -15px 5px 20px #ced0d3",
-    // color:"#000000",
+    // textShadow:".03em .03em 0 ",
+    // textShadow:"20px 10px 0px #ff99cc60,-15px -6px 0px #64a5b750",
+    // textShadow:"5px 5px 0px #eb452b, 10px 10px 0px #efa032, 15px 15px 0px #46b59b, 20px 20px 0px #017e7f, 25px 25px 0px #052939, 30px 30px 0px #c11a2b, 35px 35px 0px #c11a2b, 40px 40px 0px #c11a2b, 45px 45px 0px #c11a2b",
+    textShadow:"6px 6px 0px rgba(0,0,0,0.2)",
   },
   spin: {
     width: "100px",
@@ -44,11 +54,16 @@ const useStyles = makeStyles((theme) => ({
     animationIterationCount: "infinite",
     animationTimingFunction: "linear",
   },
-  picDescriptionCard:{
-    position:"fixed",
-    marginTop:" 19%",
-    padding:" 2% 3%",
-    textAlign:" justify",
+  picDescriptionCard: {
+    pointerEvents: "none",
+    position: "fixed",
+    marginTop: " 19%",
+    padding: " 2% 3%",
+    textAlign: " justify",
+    background:"#000000b3"
+  },
+  picInfoWrapper: {
+    pointerEvents: "none",
   },
   "@keyframes spin": {
     "0%": {
@@ -113,11 +128,10 @@ export default function Splash_2() {
   };
 
   const displayPictureInfo = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     setDisplayPicInfo(!displayPicInfo);
+    console.log(displayPicInfo);
   };
-
-  console.log(displayPicInfo);
 
   setBackgroundImage();
   return (
@@ -131,9 +145,9 @@ export default function Splash_2() {
     >
       <Grid item className={classes.topName} xs={12}>
         <Fade
-          in={true}
-          timeout={{ enter: 1500 }}
-          style={{ transitionDelay: "1000ms" }}
+          in={!displayPicInfo}
+          timeout={{ enter: 1500, exit: 300 }}
+          // style={{ transitionDelay: "1000ms" }}
         >
           <h1
             className={classes.huge}
@@ -147,9 +161,9 @@ export default function Splash_2() {
           </h1>
         </Fade>
         <Fade
-          in={true}
-          timeout={{ enter: 1500 }}
-          style={{ transitionDelay: "1000ms" }}
+          in={!displayPicInfo}
+          timeout={{ enter: 1500, exit: 300 }}
+          // style={{ transitionDelay: "1000ms" }}
         >
           <h1 className={classes.huge}>ETMAN</h1>
         </Fade>
@@ -167,7 +181,7 @@ export default function Splash_2() {
       </Grid> */}
 
       <Grid item xs={10}>
-        <Fade in={!displayPicInfo} timeout={{ enter: 500, exit: 500 }}>
+        <Fade in={!displayPicInfo} timeout={{ enter: 300, exit: 300 }}>
           <Box
             sx={{
               display: "flex",
@@ -183,33 +197,38 @@ export default function Splash_2() {
       </Grid>
       <Grid item xs={1}>
         {!displayPicInfo ? (
-          <Fade in={!displayPicInfo} timeout={{ appear:10, enter: 2000, exit: 500 }}>
+          <Fade
+            in={!displayPicInfo}
+            timeout={{ appear: 10, enter: 2000, exit: 500 }}
+          >
             <InfoOutlined
-              onMouseOver={(e) => displayPictureInfo(e)}
+              onClick={(e) => displayPictureInfo(e)}
               fontSize="large"
             />
           </Fade>
         ) : (
           <Fade in={displayPicInfo} timeout={{ enter: 100, exit: 100 }}>
-            <Info onMouseOut={(e) => displayPictureInfo(e)} fontSize="large" />
+            <Info onClick={(e) => displayPictureInfo(e)} fontSize="large" />
           </Fade>
         )}
       </Grid>
 
       <Fade
         in={displayPicInfo}
-        timeout={{ enter: 500,exit: 100 }}
-        style={{ display: (displayPicInfo ? "flex" : "none") }}
+        timeout={{ enter: 500, exit: 500 }}
+        style={{ display: displayPicInfo ? "flex" : "none" }}
       >
-        <Box class={classes.picDescriptionCard}>
+        <Box className={classes.picDescriptionCard}>
           {nasaPic ? (
-            <span>
-
-            <p>{nasaPic?.explanation}</p>
-            <p>{nasaPic?.date}</p>
-            <h2 style={{ marginBottom: 0 }}>{nasaPic?.title}</h2>
-            <h6 style={{ marginTop: 0 }}>PC: {nasaPic?.copyright}</h6>
-            </span>
+            <Box className={classes.picInfoWrapper}>
+              <p>{nasaPic?.explanation}</p>
+              <p>{nasaPic?.date}</p>
+              <h2 style={{ marginBottom: 0 }}>{nasaPic?.title}</h2>
+              <h6 style={{ marginTop: 0 }}>PC: {nasaPic?.copyright}</h6>
+              {/* <Fade in={displayPicInfo} timeout={{ enter: 100, exit: 100 }}> */}
+              {/* <Info onClick={(e) => displayPictureInfo(e)} fontSize="large" /> */}
+              {/* </Fade> */}
+            </Box>
           ) : (
             <h2>No picture information</h2>
           )}
