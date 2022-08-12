@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 
 export function NavBar2() {
 	const classes = useStyles();
-	const {root, logo_style, hover} = classes
+	const {root} = classes
 
 	// const [anchorElement, setAnchorElement] = useState(null);
 	// const handleClick = (e) => {

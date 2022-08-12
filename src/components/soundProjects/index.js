@@ -1,15 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import {
-  Box,
-  Grid,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
-  makeStyles,
-} from "@material-ui/core";
-import PianoImage from "./assets/piano.jpg";
+import { Grid, ImageList, makeStyles } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
 import useContentful from "../../hooks/useContentful";
-import { CompareSharp } from "@material-ui/icons";
 import CreateCard from "./createListTile";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
 // }
 
 export default function SoundPage() {
-  const { getAsset, getAssets, getEntries } = useContentful();
-  const [assetList, setAssetList] = useState([]);
+  const { getEntries } = useContentful();
+  // const [assetList, setAssetList] = useState([]);
   const [entriesList, setEntriesList] = useState([]);
 
   useEffect(() => {
@@ -71,16 +62,11 @@ export default function SoundPage() {
           Filter Nav
         </Grid> */}
       <Grid item xs={12}>
-        <ImageList
-          variant="woven"
-          cols={3}
-          rowHeight={121}
-        >
-          {
-          entriesList.map((data) =>( 
-          
-          <CreateCard asset={data} />
-          ))}
+        <ImageList variant="quilted" cols={4} rowHeight={121}>
+          {entriesList.map((data) => {
+            console.log("data", data);
+            return <CreateCard asset={data} key={data.sys.id} />;
+          })}
         </ImageList>
       </Grid>
     </Grid>

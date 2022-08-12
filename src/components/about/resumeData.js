@@ -1,5 +1,3 @@
-import react from "react";
-
 import insuline_img from "../codeProjects/assets/Insuline_1.png";
 import saferoutes_img from "../codeProjects/assets/SafeRoutes_1.png";
 import saltines_img from "../codeProjects/assets/Saltines_1.png";

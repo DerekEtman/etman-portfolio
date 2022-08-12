@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -54,7 +54,7 @@ const styles = makeStyles(theme => ({
 }));
 
 export default function ProjectCard(props) {
-	const { key, image_url, name, brief, info, url, git_url } = props;
+	const {  image_url, name, brief, info, url, git_url } = props;
 	const classes = styles();
 	const [expanded, setExpanded] = React.useState(false);
 

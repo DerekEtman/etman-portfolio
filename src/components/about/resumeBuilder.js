@@ -18,7 +18,6 @@ import {
 	CardContent,
 	Grid,
 	Link,
-	Icon,
 } from "@material-ui/core";
 
 // const useStyles = makeStyles((theme) =>

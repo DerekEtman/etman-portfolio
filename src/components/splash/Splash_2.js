@@ -1,24 +1,14 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Fade,
-  Grid,
-  Icon,
-  makeStyles,
-  Slide,
-} from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import { Box, Fade, Grid, makeStyles } from "@material-ui/core";
 import { Info, InfoOutlined } from "@material-ui/icons";
+import React, { useEffect, useState } from "react";
 
-const textShadowCollection = [
-  {
-    textShadow:
-      "0px -6px 0 #212121, 0px -6px 0 #212121, 0px  6px 0 #212121, 0px  6px 0 #212121,-6px  0px 0 #212121,  6px  0px 0 #212121,-6px  0px 0 #212121,    6px  0px 0 #212121,-6px -6px 0 #212121,  6px -6px 0 #212121,-6px  6px 0 #212121,6px  6px 0 #212121,-6px  18px 0 #212121,0px  18px 0 #212121,6px  18px 0 #212121,0 19px 1px rgba(0,0,0,.1),0 0 6px rgba(0,0,0,.1),0 6px 3px rgba(0,0,0,.3),0 12px 6px rgba(0,0,0,.2),0 18px 18px rgba(0,0,0,.25),0 24px 24px rgba(0,0,0,.2),0 36px 36px rgba(0,0,0,.15)",
-  },
-  { textShadow: "-15px 5px 20px #ced0d3" },
-];
+// const textShadowCollection = [
+//   {
+//     textShadow:
+//       "0px -6px 0 #212121, 0px -6px 0 #212121, 0px  6px 0 #212121, 0px  6px 0 #212121,-6px  0px 0 #212121,  6px  0px 0 #212121,-6px  0px 0 #212121,    6px  0px 0 #212121,-6px -6px 0 #212121,  6px -6px 0 #212121,-6px  6px 0 #212121,6px  6px 0 #212121,-6px  18px 0 #212121,0px  18px 0 #212121,6px  18px 0 #212121,0 19px 1px rgba(0,0,0,.1),0 0 6px rgba(0,0,0,.1),0 6px 3px rgba(0,0,0,.3),0 12px 6px rgba(0,0,0,.2),0 18px 18px rgba(0,0,0,.25),0 24px 24px rgba(0,0,0,.2),0 36px 36px rgba(0,0,0,.15)",
+//   },
+//   { textShadow: "-15px 5px 20px #ced0d3" },
+// ];
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -44,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
     // textShadow:".03em .03em 0 ",
     // textShadow:"20px 10px 0px #ff99cc60,-15px -6px 0px #64a5b750",
     // textShadow:"5px 5px 0px #eb452b, 10px 10px 0px #efa032, 15px 15px 0px #46b59b, 20px 20px 0px #017e7f, 25px 25px 0px #052939, 30px 30px 0px #c11a2b, 35px 35px 0px #c11a2b, 40px 40px 0px #c11a2b, 45px 45px 0px #c11a2b",
-    textShadow:"6px 6px 0px rgba(0,0,0,0.2)",
+    textShadow: "6px 6px 0px rgba(0,0,0,0.2)",
+    // textShadow: "4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15)",
   },
   spin: {
     width: "100px",
@@ -60,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: " 19%",
     padding: " 2% 3%",
     textAlign: " justify",
-    background:"#000000b3"
+    background: "#000000b3",
   },
   picInfoWrapper: {
     pointerEvents: "none",
@@ -106,14 +97,14 @@ export default function Splash_2() {
     return Math.floor(Math.random() * 16777215).toString(16);
   };
 
-  const trackMousePosition = (e) => {
-    e.preventDefault();
-    const clientX = e.clientX;
-    const clientY = e.clientY;
+  // const trackMousePosition = (e) => {
+  //   e.preventDefault();
+  //   const clientX = e.clientX;
+  //   const clientY = e.clientY;
 
-    this.style.backgroundPositionX = clientX + "px";
-    this.style.backgroundPositionY = clientY + "px";
-  };
+  //   this.style.backgroundPositionX = clientX + "px";
+  //   this.style.backgroundPositionY = clientY + "px";
+  // };
 
   const setBackgroundImage = async (e) => {
     let npic = await nasaPic?.hdurl;

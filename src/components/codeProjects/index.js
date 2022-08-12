@@ -12,7 +12,7 @@ import droom_img from "./assets/Droom_1.png";
 import memefly_img from "./assets/Memefly_1.png";
 import dont_die_img from "./assets/dont_Die_1.png";
 import ncov_19 from "./assets/ncov19_thumbnail_2.png";
-import { code_pic } from "./assets/code_pic.jpg";
+// import { code_pic } from "./assets/code_pic.jpg";
 
 const largeProjectData = [
 	{
@@ -129,18 +129,18 @@ const largeProjectData = [
 	}
 ];
 
-const dayProjectData = [
-	{
-		id: 0,
-		thumb_nail: memefly_img,
-		name: "Daily Project",
-		project_brief: "-Quick Brief about daily project.",
-		project_info: ["Fill in points"],
-		tech_stack: [],
-		project_url: "https://www.memeflyai.com/",
-		git_repo: "https://github.com/Lambda-School-Labs/memefly-fe.git",
-	},
-];
+// const dayProjectData = [
+// 	{
+// 		id: 0,
+// 		thumb_nail: memefly_img,
+// 		name: "Daily Project",
+// 		project_brief: "-Quick Brief about daily project.",
+// 		project_info: ["Fill in points"],
+// 		tech_stack: [],
+// 		project_url: "https://www.memeflyai.com/",
+// 		git_repo: "https://github.com/Lambda-School-Labs/memefly-fe.git",
+// 	},
+// ];
 
 const styles = makeStyles({
 	root: {},
