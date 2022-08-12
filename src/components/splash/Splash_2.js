@@ -186,7 +186,7 @@ export default function Splash_2() {
           </Box>
         </Fade>
       </Grid>
-      <Grid item xs={1}>
+      <Grid item xs={1} style={{zIndex:"1"}}>
         {!displayPicInfo ? (
           <Fade
             in={!displayPicInfo}
@@ -211,7 +211,7 @@ export default function Splash_2() {
       >
         <Box className={classes.picDescriptionCard}>
           {nasaPic ? (
-            <Box className={classes.picInfoWrapper}>
+            <Box className={classes.picInfoWrapper} >
               <p>{nasaPic?.explanation}</p>
               <p>{nasaPic?.date}</p>
               <h2 style={{ marginBottom: 0 }}>{nasaPic?.title}</h2>

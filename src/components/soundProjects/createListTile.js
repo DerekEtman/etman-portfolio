@@ -41,11 +41,23 @@ export default function CreateListTile({ asset }) {
       onMouseLeave={mouseLeave}
       className={classes.ImageListItem}
     >
-      {!hide && <ImageListItemBar title={title} subtitle={contentType} />}
+      {/* {!hide && ( */}
+        <ImageListItemBar
+          sx={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
+              "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
+          }}
+          title={title}
+          subtitle={contentType}
+          position="top"
+        />
+
 
       <img
         className={classes.itemCard}
         src={`${thumbnailURL}?w=300&h=180&q=90`}
+        // src={`${thumbnailURL}`}
         alt={fileName}
         loading="lazy"
       />
