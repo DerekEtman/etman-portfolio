@@ -62,9 +62,8 @@ export default function SoundPage() {
           Filter Nav
         </Grid> */}
       <Grid item xs={12}>
-        <ImageList variant="quilted" cols={4} rowHeight={121}>
+        <ImageList variant="quilted" cols={4} rowHeight={121} gap={8}>
           {entriesList.map((data) => {
-            console.log("data", data);
             return <CreateCard asset={data} key={data.sys.id} />;
           })}
         </ImageList>

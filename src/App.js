@@ -7,6 +7,7 @@ import ContactPage from "./components/contact/contactPage";
 import Footer from "./components/footer";
 import { NavBar2 } from "./components/navbar/navbar2";
 import soundPage from "./components/soundProjects";
+import projectPage from "./components/soundProjects/projectPage";
 import { MainSplash } from "./components/splash";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/" component={MainSplash} />
         <Route path="/code" component={codePage} />
         <Route path="/sound" component={soundPage} />
+        <Route path="/sound/:soundProjectID" component={projectPage} />
         <Route path="/about" component={aboutPage} />
         <Route path="/contact" component={ContactPage} />
         <Footer />

@@ -22,6 +22,15 @@ const useStyles = makeStyles((theme) => ({
     animationDuration: "5s",
     // animationDelay:"2000ms"
   },
+  videoBackground:{
+    position:"fixed",
+    zIndex: "-1",
+    top:0,
+    left:0,
+    width:"100%",
+    height:"100ch",
+
+  },
   topName: {
     display: "flex",
     justifyContent: "space-between",
@@ -124,6 +133,28 @@ export default function Splash_2() {
     console.log(displayPicInfo);
   };
 
+  const mediaDetect = (mediaData) => {
+    const mediaType = mediaData?.media_type;
+    console.log("mediaDetect", mediaType);
+    if (mediaType === "picture") {
+      console.log("picture");
+    }
+
+    if (mediaType === "video") {
+      console.log("video", mediaData.url + "&autoplay=1&mute=1&controls=0");
+      return (
+        <div>
+          <iframe
+            width="100%"
+            height="100%"
+            title="nasa video"
+            src={mediaData.url + "&autoplay=1&mute=1&controls=0"}
+          ></iframe>
+        </div>
+      );
+    }
+  };
+
   setBackgroundImage();
   return (
     <Grid
@@ -134,6 +165,8 @@ export default function Splash_2() {
       alignItems="center"
       spacing={0}
     >
+      <div className={classes.videoBackground}>{mediaDetect(nasaPic)}</div>
+
       <Grid item className={classes.topName} xs={12}>
         <Fade
           in={!displayPicInfo}
@@ -172,7 +205,7 @@ export default function Splash_2() {
       </Grid> */}
 
       <Grid item xs={10}>
-        <Fade in={!displayPicInfo} timeout={{ enter: 300, exit: 300 }}>
+        <Fade in={!displayPicInfo} timeout={{ enter: 1500, exit: 300 }}>
           <Box
             sx={{
               display: "flex",
@@ -186,7 +219,7 @@ export default function Splash_2() {
           </Box>
         </Fade>
       </Grid>
-      <Grid item xs={1} style={{zIndex:"1"}}>
+      <Grid item xs={1} style={{ zIndex: "1" }}>
         {!displayPicInfo ? (
           <Fade
             in={!displayPicInfo}
@@ -211,7 +244,7 @@ export default function Splash_2() {
       >
         <Box className={classes.picDescriptionCard}>
           {nasaPic ? (
-            <Box className={classes.picInfoWrapper} >
+            <Box className={classes.picInfoWrapper}>
               <p>{nasaPic?.explanation}</p>
               <p>{nasaPic?.date}</p>
               <h2 style={{ marginBottom: 0 }}>{nasaPic?.title}</h2>

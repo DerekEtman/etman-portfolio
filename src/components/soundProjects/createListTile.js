@@ -1,12 +1,17 @@
 import React from "react";
 import { ImageListItem, ImageListItemBar, makeStyles } from "@material-ui/core";
 import { useState } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    itemCard: {
-      border: "1px solid red",
-    },
+  ImageListItem: {
+    // border: "1px solid green",
+    margin: "2px",
+  },
+  imageCardBar: {
+    background:
+      "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
+      "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
   },
 }));
 
@@ -23,44 +28,46 @@ export default function CreateListTile({ asset }) {
 
   const { url: thumbnailURL = null } = thumbnailImage?.fields?.file;
 
-  const mouseEnter = (e) => {
+  const mousehover = (e) => {
     e.preventDefault();
-    setHide(true);
+    setHide(!hide);
   };
 
-  const mouseLeave = (e) => {
+  const handleProjectRoute = (e) => {
     e.preventDefault();
-
-    setHide(false);
+    console.log(asset.fields)
   };
+
+  // const mouseLeave = (e) => {
+  //   e.preventDefault();
+
+  //   setHide(!hide);
+  // };
 
   return (
     <ImageListItem
       key={thumbnailURL}
-      onMouseEnter={mouseEnter}
-      onMouseLeave={mouseLeave}
+      onMouseEnter={mousehover}
+      onMouseLeave={mousehover}
       className={classes.ImageListItem}
+      // onClick={handleProjectRoute}
     >
-      {/* {!hide && ( */}
+      <Link to={`/sound/${asset.fields.file.sys.id}`}>
+        <img
+          className={classes.itemCard}
+          src={`${thumbnailURL}?w=300&h=180&q=90`}
+          alt={fileName}
+          loading="lazy"
+        />
+      </Link>
+      {hide && (
         <ImageListItemBar
-          sx={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
-              "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
-          }}
           title={title}
           subtitle={contentType}
           position="top"
+          className={classes.imageCardBar}
         />
-
-
-      <img
-        className={classes.itemCard}
-        src={`${thumbnailURL}?w=300&h=180&q=90`}
-        // src={`${thumbnailURL}`}
-        alt={fileName}
-        loading="lazy"
-      />
+      )}
     </ImageListItem>
   );
 }
