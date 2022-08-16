@@ -19,7 +19,7 @@ function App() {
     <main className="App">
       <NavBar2 />
       <Routes>
-        <Route exact path="/" element={<MainSplash />} />
+        <Route path="/" element={<MainSplash />} />
         <Route path="/code" element={<CodePage />} />
         <Route path="/sound" element={<SoundPage />} />
         <Route path="/sound/:soundProjectID" element={<ProjectPage />} />
