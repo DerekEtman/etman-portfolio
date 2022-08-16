@@ -172,7 +172,7 @@ const styles = makeStyles({
 	}
 });
 
-export default function codePage() {
+export default function CodePage() {
 	const classes = styles();
 
 	return (

@@ -8,7 +8,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Collapse from "@material-ui/core/Collapse";
 import Typography from "@material-ui/core/Typography";
-import clsx from "clsx";
+// import clsx from "clsx";
 
 
 const styles = makeStyles(theme => ({
@@ -91,7 +91,7 @@ export default function ProjectCard(props) {
 					size="medium"
 					color="secondary"
 					alt="Learn more about this project"
-					className={clsx(classes.expand, {
+					className={(classes.expand, {
 						[classes.expandOpen]: expanded
 					})}
 					onClick={handleExpandClick}

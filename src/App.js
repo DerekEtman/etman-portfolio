@@ -1,29 +1,33 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.scss";
-import aboutPage from "./components/about/aboutPage";
-import codePage from "./components/codeProjects";
+import AboutPage from "./components/about/aboutPage";
+import CodePage from "./components/codeProjects";
 import ContactPage from "./components/contact/contactPage";
 import Footer from "./components/footer";
 import { NavBar2 } from "./components/navbar/navbar2";
-import soundPage from "./components/soundProjects";
-import projectPage from "./components/soundProjects/projectPage";
+import SoundPage from "./components/soundProjects";
+import ProjectPage from "./components/soundProjects/projectPage";
 import { MainSplash } from "./components/splash";
+
+// function User() {
+//   let { id } = useParams();
+// }
 
 function App() {
   return (
-    <Switch>
-      <main className="App">
-        <NavBar2 />
-        <Route exact path="/" component={MainSplash} />
-        <Route path="/code" component={codePage} />
-        <Route path="/sound" component={soundPage} />
-        <Route path="/sound/:soundProjectID" component={projectPage} />
-        <Route path="/about" component={aboutPage} />
-        <Route path="/contact" component={ContactPage} />
-        <Footer />
-      </main>
-    </Switch>
+    <main className="App">
+      <NavBar2 />
+      <Routes>
+        <Route path="/" element={<MainSplash />} />
+        <Route path="/code" element={<CodePage />} />
+        <Route path="/sound" element={<SoundPage />} />
+        <Route path="/sound/:soundProjectID" element={<ProjectPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+      <Footer />
+    </main>
   );
 }
 

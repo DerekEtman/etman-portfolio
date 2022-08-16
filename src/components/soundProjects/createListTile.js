@@ -1,8 +1,7 @@
 import React from "react";
 import { ImageListItem, ImageListItemBar, makeStyles } from "@material-ui/core";
 import { useState } from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom";
-
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   ImageListItem: {
     // border: "1px solid green",
@@ -59,15 +58,15 @@ export default function CreateListTile({ asset }) {
           alt={fileName}
           loading="lazy"
         />
-      </Link>
       {hide && (
         <ImageListItemBar
-          title={title}
-          subtitle={contentType}
-          position="top"
-          className={classes.imageCardBar}
+        title={title}
+        subtitle={contentType}
+        position="top"
+        className={classes.imageCardBar}
         />
-      )}
+        )}
+        </Link>
     </ImageListItem>
   );
 }
