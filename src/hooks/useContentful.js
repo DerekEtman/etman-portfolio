@@ -37,8 +37,16 @@ const useContentful = () =>  {
         }
     }
 
+    const getEntry = async(entryID) => {
+        try{
+            return await client.getEntry(entryID)
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
 
-    return {getAsset, getAssets, getEntries}
+
+    return {getAsset, getAssets, getEntries, getEntry}
 }
 export default useContentful;

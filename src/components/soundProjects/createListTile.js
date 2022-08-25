@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CreateListTile({ asset }) {
   const classes = useStyles();
-
+console.log("Asset", asset)
   const [hide, setHide] = useState(false);
 
   const {
@@ -49,9 +49,9 @@ export default function CreateListTile({ asset }) {
       onMouseEnter={mousehover}
       onMouseLeave={mousehover}
       className={classes.ImageListItem}
-      // onClick={handleProjectRoute}
+      onClick={handleProjectRoute}
     >
-      <Link to={`/sound/${asset.fields.file.sys.id}`}>
+      <Link to={`/sound/${asset.sys.id}`}>
         <img
           className={classes.itemCard}
           src={`${thumbnailURL}?w=300&h=180&q=90`}

@@ -35,6 +35,7 @@ export default function SoundPage() {
   // const [assetList, setAssetList] = useState([]);
   const [entriesList, setEntriesList] = useState([]);
 
+  console.log("E", entriesList)
   useEffect(() => {
     // getAssets()
     //   .then((response) => setAssetList(response.items))
@@ -48,7 +49,6 @@ export default function SoundPage() {
   }, []);
 
   // assetList.map((asset) => createCard(asset));
-
   //   function createCards(cardArray){
   // 	console.log("CA", cardArray)
   //   }
@@ -56,7 +56,7 @@ export default function SoundPage() {
   const classes = useStyles();
 
   return (
-    // <Box>
+  // <Box>
     <Grid container className={classes.container}>
       {/* <Grid item xs={2}>
           Filter Nav
@@ -69,6 +69,6 @@ export default function SoundPage() {
         </ImageList>
       </Grid>
     </Grid>
-    // </Box>
+  // </Box>
   );
 }

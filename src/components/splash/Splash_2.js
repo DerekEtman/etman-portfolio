@@ -252,6 +252,8 @@ export default function Splash_2() {
               {/* <Fade in={displayPicInfo} timeout={{ enter: 100, exit: 100 }}> */}
               {/* <Info onClick={(e) => displayPictureInfo(e)} fontSize="large" /> */}
               {/* </Fade> */}
+
+              <h6 style={{float:"left"}}>*built accessing NASA's photo of the day API</h6>
             </Box>
           ) : (
             <h2>No picture information</h2>
