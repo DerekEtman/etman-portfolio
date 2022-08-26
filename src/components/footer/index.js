@@ -42,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Footer() {
 	const classes = useStyles();
 
+	let currentYear = new Date().getFullYear()
+
 	return (
 		<div className={classes.root}>
 			<div className={classes.top_of_page}>
@@ -71,7 +73,7 @@ export default function Footer() {
                 <Link href="/about" className={classes.sub_menu_link} > About</Link>
 
                 </div>
-			<div className={classes.copyright}>Copyright Derek Etman 2020.</div>
+			<div className={classes.copyright}>© Derek Etman {currentYear}</div>
 		</div>
 	);
 }
