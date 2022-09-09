@@ -89,7 +89,6 @@ export default function Splash_2() {
   const [nasaPic, setNasaPic] = useState();
   const [displayPicInfo, setDisplayPicInfo] = useState(false);
 
-  console.log("nasa pic info:", nasaPic);
   useEffect(() => {
     const fetchData = async () => {
       const resp = await fetch(
@@ -118,7 +117,6 @@ export default function Splash_2() {
 
   const setBackgroundImage = async (e) => {
     let npic = await nasaPic?.hdurl;
-    console.log(npic);
     document.getElementById(
       "splash_container_2"
     ).style.backgroundImage = `url(${npic})`;
@@ -131,12 +129,10 @@ export default function Splash_2() {
   const displayPictureInfo = (event) => {
     // event.preventDefault();
     setDisplayPicInfo(!displayPicInfo);
-    console.log(displayPicInfo);
   };
 
   const mediaDetect = (mediaData) => {
     const mediaType = mediaData?.media_type;
-    console.log("mediaDetect", mediaType);
     if (mediaType === "picture") {
       console.log("picture");
     }
