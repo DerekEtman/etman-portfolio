@@ -7,12 +7,12 @@ export const VideoJS = (props) => {
   const playerRef = useRef(null);
   const { options, onReady } = props;
 
+  console.log("VideoJS Component - options, onReady", options)
   useEffect(() => {
     // Check if video.js player is the only initialized
 
     if (!playerRef.current) {
       const videoElement = videoRef.current;
-      console.log(videoElement)
 
       if (!videoElement) return;
 

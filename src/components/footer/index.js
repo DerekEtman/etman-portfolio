@@ -67,10 +67,10 @@ export default function Footer() {
 				</a>
 			</div>
 			<div className={classes.sub_menu}>
-                <Link href="/" className={classes.sub_menu_link} > Home</Link>
-                <Link href="/code" className={classes.sub_menu_link} > Code</Link>
-                <Link href="/sound" className={classes.sub_menu_link} > Sound</Link>
-                <Link href="/about" className={classes.sub_menu_link} > About</Link>
+                <Link href="/" className={classes.sub_menu_link} >Home</Link>
+                <Link href="/code" className={classes.sub_menu_link} >Code</Link>
+                <Link href="/sound" className={classes.sub_menu_link} >Sound</Link>
+                <Link href="/about" className={classes.sub_menu_link} >About</Link>
 
                 </div>
 			<div className={classes.copyright}>© Derek Etman {currentYear}</div>

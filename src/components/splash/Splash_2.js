@@ -97,6 +97,7 @@ export default function Splash_2() {
       );
       const body = await resp.json();
       setNasaPic(body);
+      
     };
 
     fetchData().catch((err) => console.log("failed to fetch data", err));
@@ -156,6 +157,7 @@ export default function Splash_2() {
   };
 
   setBackgroundImage();
+
   return (
     <Grid
       container
