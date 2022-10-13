@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CreateListTile({ asset }) {
   const classes = useStyles();
-
   const [hide, setHide] = useState(false);
 
   const {
@@ -29,12 +28,13 @@ export default function CreateListTile({ asset }) {
 
   const mousehover = (e) => {
     e.preventDefault();
+    e.stopPropagation()
     setHide(!hide);
   };
 
   const handleProjectRoute = (e) => {
     e.preventDefault();
-    console.log(asset.fields)
+    // console.log("createListTitle - asset.fields")
   };
 
   // const mouseLeave = (e) => {
@@ -49,9 +49,9 @@ export default function CreateListTile({ asset }) {
       onMouseEnter={mousehover}
       onMouseLeave={mousehover}
       className={classes.ImageListItem}
-      // onClick={handleProjectRoute}
+      onClick={handleProjectRoute}
     >
-      <Link to={`/sound/${asset.fields.file.sys.id}`}>
+      <Link to={`/sound/${asset.sys.id}`}>
         <img
           className={classes.itemCard}
           src={`${thumbnailURL}?w=300&h=180&q=90`}

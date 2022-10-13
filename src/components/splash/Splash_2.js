@@ -89,7 +89,6 @@ export default function Splash_2() {
   const [nasaPic, setNasaPic] = useState();
   const [displayPicInfo, setDisplayPicInfo] = useState(false);
 
-  console.log("nasa pic info:", nasaPic);
   useEffect(() => {
     const fetchData = async () => {
       const resp = await fetch(
@@ -97,6 +96,7 @@ export default function Splash_2() {
       );
       const body = await resp.json();
       setNasaPic(body);
+      
     };
 
     fetchData().catch((err) => console.log("failed to fetch data", err));
@@ -117,7 +117,6 @@ export default function Splash_2() {
 
   const setBackgroundImage = async (e) => {
     let npic = await nasaPic?.hdurl;
-    console.log(npic);
     document.getElementById(
       "splash_container_2"
     ).style.backgroundImage = `url(${npic})`;
@@ -130,12 +129,10 @@ export default function Splash_2() {
   const displayPictureInfo = (event) => {
     // event.preventDefault();
     setDisplayPicInfo(!displayPicInfo);
-    console.log(displayPicInfo);
   };
 
   const mediaDetect = (mediaData) => {
     const mediaType = mediaData?.media_type;
-    console.log("mediaDetect", mediaType);
     if (mediaType === "picture") {
       console.log("picture");
     }
@@ -156,6 +153,7 @@ export default function Splash_2() {
   };
 
   setBackgroundImage();
+
   return (
     <Grid
       container
@@ -252,6 +250,8 @@ export default function Splash_2() {
               {/* <Fade in={displayPicInfo} timeout={{ enter: 100, exit: 100 }}> */}
               {/* <Info onClick={(e) => displayPictureInfo(e)} fontSize="large" /> */}
               {/* </Fade> */}
+
+              <h6 style={{float:"left"}}>*built accessing NASA's photo of the day API</h6>
             </Box>
           ) : (
             <h2>No picture information</h2>
