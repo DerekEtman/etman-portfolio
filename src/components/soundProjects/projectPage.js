@@ -42,10 +42,11 @@ const useStyles = makeStyles((theme) => ({
     // borderRightColor: " rgba(255, 255, 255, 0.14)",
     borderRight: "1px rgba(255, 255, 255, 0.14)",
     minHeight: "80vh",
-    width: "99vw",
+    width: "95vw",
     overflow: "hidden",
     margin: " 50px auto",
     paddingBottom:"20px",
+    float:"right"
   },
   projectField: {
     width: "100vw",
