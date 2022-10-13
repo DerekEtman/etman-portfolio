@@ -37,7 +37,6 @@ export default function SoundPage() {
   // const [assetList, setAssetList] = useState([]);
   const [entriesList, setEntriesList] = useState([]);
 
-  console.log("E", entriesList)
   useEffect(() => {
     // getAssets()
     //   .then((response) => setAssetList(response.items))
@@ -48,6 +47,8 @@ export default function SoundPage() {
       .catch((err) => {
         console.log(err);
       });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // assetList.map((asset) => createCard(asset));
@@ -62,7 +63,10 @@ export default function SoundPage() {
     <Grid container className={classes.container1} >
       {/* <Grid item xs={2}>
           Filter Nav
-        </Grid> */}
+      </Grid> */}
+
+
+
       <Grid item xs={11} className={classes.projectList}>
         <ImageList variant="quilted"  rowHeight={121} >
           {entriesList.map((data) => {

@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CreateListTile({ asset }) {
   const classes = useStyles();
-console.log("Asset", asset)
   const [hide, setHide] = useState(false);
 
   const {
@@ -29,12 +28,13 @@ console.log("Asset", asset)
 
   const mousehover = (e) => {
     e.preventDefault();
+    e.stopPropagation()
     setHide(!hide);
   };
 
   const handleProjectRoute = (e) => {
     e.preventDefault();
-    console.log(asset.fields)
+    console.log("createListTitle - asset.fields")
   };
 
   // const mouseLeave = (e) => {

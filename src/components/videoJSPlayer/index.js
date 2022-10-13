@@ -8,6 +8,7 @@ export const VideoJS = (props) => {
   const { options, onReady } = props;
 
   console.log("VideoJS Component - options, onReady", options)
+  
   useEffect(() => {
     // Check if video.js player is the only initialized
 
@@ -17,7 +18,7 @@ export const VideoJS = (props) => {
       if (!videoElement) return;
 
       const player = (playerRef.current = videojs(videoElement, options, () => {
-        videojs.log("player is ready");
+        // videojs.log("player is ready");
         onReady && onReady(player);
       }));
 
@@ -44,7 +45,7 @@ export const VideoJS = (props) => {
 
   return(
     <div data-vjs-player>
-        <video ref={videoRef} className='video-js vjs-big-play-centered' />
+        <video ref={videoRef} className='video-js vjs-big-play-centered' id="vid1"/>
     </div>
   )
 };
