@@ -1,19 +1,51 @@
-import { Button, Grid, makeStyles } from "@material-ui/core";
-import { Refresh } from "@material-ui/icons";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {
+  Button,
+  Grid,
+  makeStyles,
+  Typography,
+  withStyles,
+} from "@material-ui/core";
+import { ArrowBack, ArrowLeft, Refresh } from "@material-ui/icons";
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import videojs from "video.js";
 import useContentful from "../../hooks/useContentful";
 import { VideoJS } from "../videoJSPlayer";
 
+const BlackTextTypography = withStyles({
+  root: {
+    fontWeight: "bolder",
+  },
+})(Typography);
+
+const BoldProjectButton = withStyles({
+  root:{
+    color:"white",
+    fontWeight:"bold",
+    borderWidth:"3px",
+    borderColor:"White"
+  }
+})(Button);
+
 const useStyles = makeStyles((theme) => ({
   projectContainer: {
     // border:"1px solid green",
-    height: "80vh",
+    // background:"#000000e3",
+    background: "rgba(255, 255, 255, 0.14)",
+    borderRadius: "16px",
+    borderTopRightRadius: "0",
+    borderBottomRightRadius: "0",
+    boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+    backdropFilter: "blur(9.3px)",
+    "-webkit-backdrop-filter": "blur(4.3px)",
+    border: "1px solid rgba(255, 255, 255, 0.25)",
+    // borderRightColor: " rgba(255, 255, 255, 0.14)",
+    borderRight: "1px rgba(255, 255, 255, 0.14)",
+    minHeight: "80vh",
     width: "99vw",
     overflow: "hidden",
-    margin: " 0 auto",
-    background:""
+    margin: " 50px auto",
+    paddingBottom:"20px",
   },
   projectField: {
     width: "100vw",
@@ -21,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   backgroundImage: {
     position: "fixed",
     // width: "120%",
-    height: "100vh",
+    height: "130vh",
     top: 0,
     left: 0,
     zIndex: "-1",
@@ -35,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ProjectPage(props) {
   const classes = useStyles();
   const [entry, setEntry] = useState({});
-  const [options, setOptions] = useState({
+  const [options] = useState({
     autoplay: false,
     controls: true,
     responsive: true,
@@ -51,14 +83,14 @@ export default function ProjectPage(props) {
   const navigate = useNavigate();
 
   const updateVideoSource = () => {
-    console.log("updateVideoSource - entry", entry);
+    // console.log("updateVideoSource - entry", entry);
     let testVid1 = videojs("vid1");
 
     let sources = {
       src: entry.fields?.file.fields.file.url,
       type: entry.fields?.file.fields.file?.contentType,
     };
-    console.log("updateVideoSource - sources", entry);
+    // console.log("updateVideoSource - sources", entry);
     testVid1.poster(entry.fields?.thumbnailImage.fields.file.url);
 
     testVid1.src(sources);
@@ -107,18 +139,20 @@ export default function ProjectPage(props) {
 
   useEffect(() => {
     getEntry(soundProjectID).then((retrievedProjectData) => {
-      console.log("retrieved data", retrievedProjectData);
+      // console.log("retrieved data", retrievedProjectData);
       setEntry(retrievedProjectData);
     });
     // .then(getVideoJSOptions())
     // .then(() => {
     //   updateVideoSource();
     // });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    console.log("Second useEffect", entry);
+    // console.log("Second useEffect", entry);
     updateVideoSource();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entry]);
 
   const handlePlayerReady = (player) => {
@@ -135,45 +169,54 @@ export default function ProjectPage(props) {
   };
 
   return (
-    <Grid container spacing={3} className={classes.projectContainer}>
+    <div>
       <img
         src={entry?.fields?.thumbnailImage.fields.file.url}
         alt={`${entry?.fields?.thumbnailImage.fields.title}`}
         className={classes.backgroundImage}
       />
-      <Grid item xs={1}>
-        <Button
-          onClick={() => {
-            navigate(-1);
-          }}
-          variant={"outlined"}
-        >
-          Back
-        </Button>
-      </Grid>
-      <Grid item xs={11} className={classes.projectField}>
-        <h2>{entry?.fields?.title}</h2>
-      </Grid>
-      <Grid item xs={8} className={classes.projectField}>
-        {exists(options) ? (
-          <VideoJS options={options} onReady={handlePlayerReady} />
-        ) : (
-          <div>something is here</div>
-        )}
+      <Grid container spacing={3} className={classes.projectContainer}>
+        <Grid item xs={1}>
+          <BoldProjectButton
+            onClick={() => {
+              navigate(-1);
+            }}
+            variant={"outlined"}
+            startIcon={<ArrowBack />}
+          >
+          </BoldProjectButton>
+        </Grid>
+        <Grid item xs={11} className={classes.projectField}>
+          <BlackTextTypography
+            variant="h1"
+            component="h2"
+            align="right"
+          >
+            {entry?.fields?.title?.toUpperCase()}
+          </BlackTextTypography>
+        </Grid>
+        <Grid item xs={12} md={8} className={classes.projectField}>
+          {exists(options) ? (
+            <VideoJS options={options} onReady={handlePlayerReady} />
+          ) : (
+            <div>something is here</div>
+          )}
+          <BoldProjectButton
+            onClick={updateVideoSource}
+            color={"secondary"}
+            variant={"outlined"}
+            startIcon={<Refresh />}
+            style={{ marginTop: "15px" }}
+          >
+            Refresh Player
+          </BoldProjectButton>
+        </Grid>
 
-        <Button
-          onClick={updateVideoSource}
-          color={"secondary"}
-          variant={"outlined"}
-          startIcon={<Refresh />}
-        >
-          Refresh Video
-        </Button>
+        <Grid item xs={12} md={4} className={classes.projectField}>
+          <h3>{entry.fields?.description}</h3>
+        </Grid>
+        {/* <Grid item xs={12} className={classes.projectField}></Grid> */}
       </Grid>
-
-      <Grid item xs={3} className={classes.projectField}>
-        <h3>{entry?.fields?.description}</h3>
-      </Grid>
-    </Grid>
+    </div>
   );
 }

@@ -65,8 +65,6 @@ export default function SoundPage() {
           Filter Nav
       </Grid> */}
 
-
-
       <Grid item xs={11} className={classes.projectList}>
         <ImageList variant="quilted"  rowHeight={121} >
           {entriesList.map((data) => {

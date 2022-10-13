@@ -34,7 +34,7 @@ export default function CreateListTile({ asset }) {
 
   const handleProjectRoute = (e) => {
     e.preventDefault();
-    console.log("createListTitle - asset.fields")
+    // console.log("createListTitle - asset.fields")
   };
 
   // const mouseLeave = (e) => {
