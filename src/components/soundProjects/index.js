@@ -1,4 +1,4 @@
-import { Grid, ImageList, makeStyles } from "@material-ui/core";
+import { Grid, ImageList, makeStyles, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import useContentful from "../../hooks/useContentful";
 import CreateCard from "./createListTile";
@@ -64,7 +64,17 @@ export default function SoundPage() {
       {/* <Grid item xs={2}>
           Filter Nav
       </Grid> */}
+      <Grid item xs={12} >
+        <Typography variant="h1" align={"left"}>
+          Music & Audio Projects
+        </Typography>
+        <Typography variant="h2"  >
+          Unfiltered for now, but coming soon.
+        </Typography>
+      </Grid>
 
+      <Grid item xs={"auto"}>
+      </Grid>
       <Grid item xs={11} className={classes.projectList}>
         <ImageList variant="quilted"  rowHeight={121} >
           {entriesList.map((data) => {
