@@ -10,6 +10,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import videojs from "video.js";
 import useContentful from "../../hooks/useContentful";
+import useDetectBackgroundColor from "../../hooks/useDetectBackgroundColor";
 import { VideoJS } from "../videoJSPlayer";
 
 const BlackTextTypography = withStyles({
@@ -19,12 +20,12 @@ const BlackTextTypography = withStyles({
 })(Typography);
 
 const BoldProjectButton = withStyles({
-  root:{
-    color:"white",
-    fontWeight:"bold",
-    borderWidth:"3px",
-    borderColor:"White"
-  }
+  root: {
+    color: "white",
+    fontWeight: "bold",
+    borderWidth: "3px",
+    borderColor: "White",
+  },
 })(Button);
 
 const useStyles = makeStyles((theme) => ({
@@ -45,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
     width: "95vw",
     overflow: "hidden",
     margin: " 50px auto",
-    paddingBottom:"20px",
-    float:"right"
+    paddingBottom: "20px",
+    float: "right",
   },
   projectField: {
     width: "100vw",
@@ -137,22 +138,35 @@ export default function ProjectPage(props) {
         return false;
     }
   };
+  let imageURL = entry?.fields?.thumbnailImage.fields.file.url;
+  let rgb = useDetectBackgroundColor(imageURL);
+
+  console.log("RGB", rgb)
+
 
   useEffect(() => {
-    getEntry(soundProjectID).then((retrievedProjectData) => {
-      // console.log("retrieved data", retrievedProjectData);
-      setEntry(retrievedProjectData);
-    });
-    // .then(getVideoJSOptions())
-    // .then(() => {
-    //   updateVideoSource();
-    // });
+    getEntry(soundProjectID)
+      .then((retrievedProjectData) => {
+        // console.log("retrieved data", retrievedProjectData);
+        setEntry(retrievedProjectData);
+        // get image from entry
+        // get color from image here
+
+        // set color
+      })
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // backgroundTest = document.getElementById("projectBackgroundImg");
+  // console.log("background Test", backgroundTest)
+
+  // let rgb = () => {useDetectBackgroundColor(backgroundTest);}
 
   useEffect(() => {
     // console.log("Second useEffect", entry);
     updateVideoSource();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entry]);
 
@@ -172,9 +186,10 @@ export default function ProjectPage(props) {
   return (
     <div>
       <img
-        src={entry?.fields?.thumbnailImage.fields.file.url}
+        src={entry?.fields?.thumbnailImage.fields.file.url} 
         alt={`${entry?.fields?.thumbnailImage.fields.title}`}
         className={classes.backgroundImage}
+        id="projectBackgroundImg"
       />
       <Grid container spacing={3} className={classes.projectContainer}>
         <Grid item xs={1}>
@@ -184,15 +199,10 @@ export default function ProjectPage(props) {
             }}
             variant={"outlined"}
             startIcon={<ArrowBack />}
-          >
-          </BoldProjectButton>
+          ></BoldProjectButton>
         </Grid>
         <Grid item xs={11} className={classes.projectField}>
-          <BlackTextTypography
-            variant="h1"
-            component="h2"
-            align="right"
-          >
+          <BlackTextTypography variant="h1" component="h2" align="right">
             {entry?.fields?.title?.toUpperCase()}
           </BlackTextTypography>
         </Grid>
