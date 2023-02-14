@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "3vh auto",
     backgroundColor: "Black",
     color: "white",
-    fontFamily: "'Bebas Neue', cursive",
+    fontFamily: "'Montserrat', sans-serif"
     // overflow:"hidden",
     // backgroundImage: `url(${PianoImage})`,
     // backgroundSize: "300%",
