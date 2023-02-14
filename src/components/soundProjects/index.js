@@ -6,6 +6,7 @@ import CreateCard from "./createListTile";
 const useStyles = makeStyles((theme) => ({
   container1: {
     minHeight: "100vh",
+    padding: "2rem",
     margin: "3vh auto",
     backgroundColor: "Black",
     color: "white",
@@ -19,9 +20,9 @@ const useStyles = makeStyles((theme) => ({
     padding: "2%",
     height: "60vh",
   },
-  projectList:{
+  projectList: {
     // width:'90%',
-  }
+  },
 }));
 
 // function checkContentType(asset) {
@@ -59,30 +60,31 @@ export default function SoundPage() {
   const classes = useStyles();
 
   return (
-  // <Box>
-    <Grid container className={classes.container1} >
-      {/* <Grid item xs={2}>
-          Filter Nav
-      </Grid> */}
-      <Grid item xs={12} >
+    // <Box>
+    <Grid container className={classes.container1}>
+      <Grid item xs={12}>
         <Typography variant="h1" align={"left"}>
           Music & Audio Projects
         </Typography>
-        <Typography variant="h2"  >
+        {/* <Typography variant="h2"  >
           Unfiltered for now, but coming soon.
-        </Typography>
+        </Typography> */}
       </Grid>
 
-      <Grid item xs={"auto"}>
+      <Grid item xs={12} md={2}>
+        Filter Nav
       </Grid>
-      <Grid item xs={11} className={classes.projectList}>
-        <ImageList variant="quilted"  rowHeight={121} >
+
+      <Grid item xs={"auto"}></Grid>
+
+      <Grid item xs={9} className={classes.projectList}>
+        <ImageList variant="quilted" rowHeight={121}>
           {entriesList.map((data) => {
             return <CreateCard asset={data} key={data.sys.id} />;
           })}
         </ImageList>
       </Grid>
     </Grid>
-  // </Box>
+    // </Box>
   );
 }
