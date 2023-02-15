@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 //   }
 // }
 
-export default function SoundPage() {
+export default function SoundPageMaster() {
   const classes = useStyles();
 
   const { getEntries } = useContentful();
