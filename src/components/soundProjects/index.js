@@ -1,7 +1,5 @@
+import React from "react";
 import { Grid, ImageList, makeStyles, Typography } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
-import useContentful from "../../hooks/useContentful";
-import CreateCard from "./createListTile";
 
 const useStyles = makeStyles((theme) => ({
   container1: {
@@ -25,66 +23,61 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// function checkContentType(asset) {
-//   const {file:{contentType}} = asset.fields
-//   switch(contentType){
-//     case "audio/":
-
-//   }
-// }
-
 export default function SoundPage() {
-  const { getEntries } = useContentful();
-  // const [assetList, setAssetList] = useState([]);
-  const [entriesList, setEntriesList] = useState([]);
-
-  useEffect(() => {
-    // getAssets()
-    //   .then((response) => setAssetList(response.items))
-    //   .catch((err) => console.log(err));
-
-    getEntries()
-      .then((response) => setEntriesList(response.items))
-      .catch((err) => {
-        console.log(err);
-      });
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // assetList.map((asset) => createCard(asset));
-  //   function createCards(cardArray){
-  // 	console.log("CA", cardArray)
-  //   }
-
   const classes = useStyles();
 
   return (
-    // <Box>
     <Grid container className={classes.container1}>
-      <Grid item xs={12}>
-        <Typography variant="h1" align={"left"}>
-          Music & Audio Projects
-        </Typography>
-        {/* <Typography variant="h2"  >
-          Unfiltered for now, but coming soon.
-        </Typography> */}
+      <Grid item xs={2} />
+      <Grid item xs={8}>
+        <h1>Hand Crafted Tunes</h1>
+
+        <iframe
+          width="100%"
+          height="300"
+          scrolling="no"
+          frameborder="no"
+          allow="autoplay"
+          title="DerekEtmanSoundCloud"
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/77942380&color=%23868686&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        ></iframe>
+        <div
+          style={{
+            fontSize: "10px",
+            color: "#cccccc",
+            "line-break": "anywhere",
+            wordBreak: "normal",
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+            textOverflow: "ellipsis",
+            fontFamily:
+              "Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif",
+            fontWeight: 100,
+          }}
+        >
+          <a
+            href="https://soundcloud.com/dereketman"
+            title="Derek Etman"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#cccccc", textDecoration: "none" }}
+          >
+            Derek Etman
+          </a>
+          ·
+          <a
+            href="https://soundcloud.com/dereketman/sets/piano-pieces"
+            title="Piano pieces"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#cccccc", textDecoration: "none" }}
+          >
+            Piano pieces
+          </a>
+        </div>
       </Grid>
 
-      <Grid item xs={12} md={2}>
-        Filter Nav
-      </Grid>
-
-      <Grid item xs={"auto"}></Grid>
-
-      <Grid item xs={9} className={classes.projectList}>
-        <ImageList variant="quilted" rowHeight={121}>
-          {entriesList.map((data) => {
-            return <CreateCard asset={data} key={data.sys.id} />;
-          })}
-        </ImageList>
-      </Grid>
+      <Grid item xs={2} />
     </Grid>
-    // </Box>
   );
 }
