@@ -3,15 +3,18 @@ import {
   Grid,
   makeStyles,
   Typography,
-  withStyles,
+  withStyles
 } from "@material-ui/core";
-import { ArrowBack, ArrowLeft, Refresh } from "@material-ui/icons";
+import { ArrowBack, Refresh } from "@material-ui/icons";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import videojs from "video.js";
 import useContentful from "../../hooks/useContentful";
 import useDetectBackgroundColor from "../../hooks/useDetectBackgroundColor";
 import { VideoJS } from "../videoJSPlayer";
+
+
+
 
 const BlackTextTypography = withStyles({
   root: {
@@ -85,14 +88,34 @@ export default function ProjectPage(props) {
   const navigate = useNavigate();
 
   const updateVideoSource = () => {
-    // console.log("updateVideoSource - entry", entry);
     let testVid1 = videojs("vid1");
 
-    let sources = {
-      src: entry.fields?.file.fields.file.url,
-      type: entry.fields?.file.fields.file?.contentType,
+    const findSrc = (entry) => {
+      // console.log( "which entry", entry)
+
+      // if fields.file.fields.file.url exists return this
+      if (entry?.fields?.file?.fields?.file.url)
+        return entry.fields.file.fields.file.url;
+      if (entry?.fields?.mediaUrl)
+        return `https://www.googleapis.com/drive/v3/files/1LT2qkaeY3xWFEGHcG0BbqUvalgN2aa2t?alt=media&key=${process.env.REACT_APP_GOOGLE_DRIVE_API}`;
+      // if fields.file.fields.file.media or w/e exists, return that
     };
-    // console.log("updateVideoSource - sources", entry);
+
+    const findMediaType = (entry) => {
+      if (entry.fields?.file?.fields?.file?.contentType)
+        return entry.fields?.file?.fields?.file?.contentType;
+
+      return "video/mp4";
+    };
+
+    let sources = {
+      src: findSrc(entry),
+      type: findMediaType(entry),
+    };
+
+    // console.log("updateVideoSource - sources", sources);
+
+
     testVid1.poster(entry.fields?.thumbnailImage.fields.file.url);
 
     testVid1.src(sources);
@@ -138,29 +161,27 @@ export default function ProjectPage(props) {
         return false;
     }
   };
-  let imageURL = entry?.fields?.thumbnailImage.fields.file.url;
-  let rgb = useDetectBackgroundColor(imageURL);
+  // let imageURL = entry?.fields?.thumbnailImage.fields.file.url;
+  // let rgb = useDetectBackgroundColor(imageURL);
 
-  console.log("RGB", rgb)
-
+  // console.log("RGB", rgb);
 
   useEffect(() => {
-    getEntry(soundProjectID)
-      .then((retrievedProjectData) => {
-        // console.log("retrieved data", retrievedProjectData);
-        setEntry(retrievedProjectData);
-        // get image from entry
-        // get color from image here
+    getEntry(soundProjectID).then((retrievedProjectData) => {
+      // console.log("retrieved data", retrievedProjectData);
+      setEntry(retrievedProjectData);
+      // get image from entry
 
-        // set color
-      })
+      // get color from image here
+
+      // set color
+    });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // backgroundTest = document.getElementById("projectBackgroundImg");
   // console.log("background Test", backgroundTest)
-
   // let rgb = () => {useDetectBackgroundColor(backgroundTest);}
 
   useEffect(() => {
@@ -186,7 +207,7 @@ export default function ProjectPage(props) {
   return (
     <div>
       <img
-        src={entry?.fields?.thumbnailImage.fields.file.url} 
+        src={entry?.fields?.thumbnailImage.fields.file.url}
         alt={`${entry?.fields?.thumbnailImage.fields.title}`}
         className={classes.backgroundImage}
         id="projectBackgroundImg"

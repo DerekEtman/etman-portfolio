@@ -4,6 +4,7 @@ import { Grid, ImageList, makeStyles, Typography } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   container1: {
     minHeight: "100vh",
+    padding: "2rem",
     margin: "3vh auto",
     backgroundColor: "Black",
     color: "white",

@@ -2,6 +2,7 @@ import React from "react";
 import { ImageListItem, ImageListItemBar, makeStyles } from "@material-ui/core";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import defaultImage from "./assets/piano.jpg";
 const useStyles = makeStyles((theme) => ({
   ImageListItem: {
     // border: "1px solid green",
@@ -20,15 +21,30 @@ export default function CreateListTile({ asset }) {
 
   const {
     title,
-    file: { contentType, fileName },
+    file: { contentType, fileName} = {contentType: "nothing here", fileName:"lakjdlsak"},
     thumbnailImage,
   } = asset?.fields;
 
-  const { url: thumbnailURL = null } = thumbnailImage?.fields?.file;
+
+  const { url: thumbnailURL = null } = thumbnailImage?.fields?.file
+    ? thumbnailImage?.fields?.file
+    : defaultImage;
+
+  const exists = (optionList) => {
+    switch (typeof optionList) {
+      case "array":
+        return true;
+      case "object":
+        return true;
+      default:
+        return false;
+    }
+  };
+  console.log(asset.fields)
 
   const mousehover = (e) => {
     e.preventDefault();
-    e.stopPropagation()
+    e.stopPropagation();
     setHide(!hide);
   };
 
@@ -58,15 +74,15 @@ export default function CreateListTile({ asset }) {
           alt={fileName}
           loading="lazy"
         />
-      {hide && (
-        <ImageListItemBar
-        title={title}
-        subtitle={contentType}
-        position="top"
-        className={classes.imageCardBar}
-        />
+        {hide && (
+          <ImageListItemBar
+            title={title}
+            subtitle={exists(contentType) ? contentType : 'unknown'}
+            position="top"
+            className={classes.imageCardBar}
+          />
         )}
-        </Link>
+      </Link>
     </ImageListItem>
   );
 }
