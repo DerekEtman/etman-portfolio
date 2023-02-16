@@ -3,9 +3,9 @@ import {
   Grid,
   makeStyles,
   Typography,
-  withStyles,
+  withStyles
 } from "@material-ui/core";
-import { ArrowBack, ArrowLeft, Refresh } from "@material-ui/icons";
+import { ArrowBack, Refresh } from "@material-ui/icons";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import videojs from "video.js";
@@ -97,7 +97,7 @@ export default function ProjectPage(props) {
       if (entry?.fields?.file?.fields?.file.url)
         return entry.fields.file.fields.file.url;
       if (entry?.fields?.mediaUrl)
-        return `https://www.googleapis.com/drive/v3/files/1LT2qkaeY3xWFEGHcG0BbqUvalgN2aa2t?alt=media&key=${process.env.REACT_APP_GOOGLE_DRIVE_API_MASTER}`;
+        return `https://www.googleapis.com/drive/v3/files/1LT2qkaeY3xWFEGHcG0BbqUvalgN2aa2t?alt=media&key=${process.env.REACT_APP_GOOGLE_DRIVE_API}`;
       // if fields.file.fields.file.media or w/e exists, return that
     };
 
@@ -108,13 +108,14 @@ export default function ProjectPage(props) {
       return "video/mp4";
     };
 
-    console.log(findSrc(entry));
-
     let sources = {
       src: findSrc(entry),
       type: findMediaType(entry),
     };
-    // console.log("updateVideoSource - sources", entry);
+
+    // console.log("updateVideoSource - sources", sources);
+
+
     testVid1.poster(entry.fields?.thumbnailImage.fields.file.url);
 
     testVid1.src(sources);
@@ -160,16 +161,17 @@ export default function ProjectPage(props) {
         return false;
     }
   };
-  let imageURL = entry?.fields?.thumbnailImage.fields.file.url;
-  let rgb = useDetectBackgroundColor(imageURL);
+  // let imageURL = entry?.fields?.thumbnailImage.fields.file.url;
+  // let rgb = useDetectBackgroundColor(imageURL);
 
-  console.log("RGB", rgb);
+  // console.log("RGB", rgb);
 
   useEffect(() => {
     getEntry(soundProjectID).then((retrievedProjectData) => {
       // console.log("retrieved data", retrievedProjectData);
       setEntry(retrievedProjectData);
       // get image from entry
+
       // get color from image here
 
       // set color
@@ -180,7 +182,6 @@ export default function ProjectPage(props) {
 
   // backgroundTest = document.getElementById("projectBackgroundImg");
   // console.log("background Test", backgroundTest)
-
   // let rgb = () => {useDetectBackgroundColor(backgroundTest);}
 
   useEffect(() => {
