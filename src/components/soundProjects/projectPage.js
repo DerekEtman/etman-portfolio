@@ -3,18 +3,14 @@ import {
   Grid,
   makeStyles,
   Typography,
-  withStyles
+  withStyles,
 } from "@material-ui/core";
 import { ArrowBack, Refresh } from "@material-ui/icons";
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import videojs from "video.js";
 import useContentful from "../../hooks/useContentful";
-import useDetectBackgroundColor from "../../hooks/useDetectBackgroundColor";
 import { VideoJS } from "../videoJSPlayer";
-
-
-
 
 const BlackTextTypography = withStyles({
   root: {
@@ -69,6 +65,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// const function MediaRouter(){
+
+// }
+
 export default function ProjectPage(props) {
   const classes = useStyles();
   const [entry, setEntry] = useState({});
@@ -91,15 +91,22 @@ export default function ProjectPage(props) {
     let testVid1 = videojs("vid1");
 
     const findSrc = (entry) => {
-      // console.log( "which entry", entry)
+      console.log("which entry", entry);
 
       // if fields.file.fields.file.url exists return this
       if (entry?.fields?.file?.fields?.file.url)
         return entry.fields.file.fields.file.url;
       if (entry?.fields?.mediaUrl)
-        return `https://www.googleapis.com/drive/v3/files/1LT2qkaeY3xWFEGHcG0BbqUvalgN2aa2t?alt=media&key=${process.env.REACT_APP_GOOGLE_DRIVE_API}`;
-      // if fields.file.fields.file.media or w/e exists, return that
+        // return `https://www.googleapis.com/drive/v3/files/1LT2qkaeY3xWFEGHcG0BbqUvalgN2aa2t?key=${process.env.REACT_APP_GOOGLE_DRIVE_API}`;
+        // return entry?.fields?.mediaUrl
+        return `https://drive.google.com/uc?id=${entry?.fields?.mediaUrl}&export=download`;
+      // if fields.file.fields.file.media or w/e exists, return thatzzz
     };
+
+    //     GET https://www.googleapis.com/drive/v3/files/1LT2qkaeY3xWFEGHcG0BbqUvalgN2aa2t?key=[YOUR_API_KEY] HTTP/1.1
+
+    // Authorization: Bearer [YOUR_ACCESS_TOKEN]
+    // Accept: application/json
 
     const findMediaType = (entry) => {
       if (entry.fields?.file?.fields?.file?.contentType)
@@ -113,8 +120,7 @@ export default function ProjectPage(props) {
       type: findMediaType(entry),
     };
 
-    // console.log("updateVideoSource - sources", sources);
-
+    console.log("updateVideoSource - sources", sources);
 
     testVid1.poster(entry.fields?.thumbnailImage.fields.file.url);
 
@@ -204,6 +210,12 @@ export default function ProjectPage(props) {
     });
   };
 
+  // const disposePlayer = (player) => {
+  //   playerRef.current = player;
+
+  //   player.dispose();
+  // };
+
   return (
     <div>
       <img
@@ -228,11 +240,25 @@ export default function ProjectPage(props) {
           </BlackTextTypography>
         </Grid>
         <Grid item xs={12} md={8} className={classes.projectField}>
-          {exists(options) ? (
-            <VideoJS options={options} onReady={handlePlayerReady} />
+          {exists(options) && entry?.fields?.mediaUrl ? (
+
+              <iframe
+                src={`https://drive.google.com/file/d/${entry?.fields?.mediaUrl}/preview`}
+                width="100%"
+                height="100%"
+                overflow="auto"
+                allow="autoplay"
+                title="test"
+              ></iframe>
+            
           ) : (
-            <div>something is here</div>
+            <></>
           )}
+
+          {/* {exists(options) && !entry?.fields?.mediaUrl ? ( */}
+          <VideoJS options={options} onReady={handlePlayerReady} />
+          {/* ) : null} */}
+
           <BoldProjectButton
             onClick={updateVideoSource}
             color={"secondary"}
