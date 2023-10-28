@@ -10,7 +10,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import videojs from "video.js";
 import useContentful from "../../hooks/useContentful";
-import useDetectBackgroundColor from "../../hooks/useDetectBackgroundColor";
 import { VideoJS } from "../videoJSPlayer";
 
 const BlackTextTypography = withStyles({
@@ -211,11 +210,11 @@ export default function ProjectPage(props) {
     });
   };
 
-  const disposePlayer = (player) => {
-    playerRef.current = player;
+  // const disposePlayer = (player) => {
+  //   playerRef.current = player;
 
-    player.dispose();
-  };
+  //   player.dispose();
+  // };
 
   return (
     <div>
