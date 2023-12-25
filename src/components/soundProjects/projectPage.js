@@ -100,7 +100,6 @@ export default function ProjectPage(props) {
         // return `https://www.googleapis.com/drive/v3/files/1LT2qkaeY3xWFEGHcG0BbqUvalgN2aa2t?key=${process.env.REACT_APP_GOOGLE_DRIVE_API}`;
         // return entry?.fields?.mediaUrl
         return `https://drive.google.com/uc?id=${entry?.fields?.mediaUrl}&export=download`;
-      // if fields.file.fields.file.media or w/e exists, return thatzzz
     };
 
     //     GET https://www.googleapis.com/drive/v3/files/1LT2qkaeY3xWFEGHcG0BbqUvalgN2aa2t?key=[YOUR_API_KEY] HTTP/1.1
@@ -167,10 +166,7 @@ export default function ProjectPage(props) {
         return false;
     }
   };
-  // let imageURL = entry?.fields?.thumbnailImage.fields.file.url;
-  // let rgb = useDetectBackgroundColor(imageURL);
 
-  // console.log("RGB", rgb);
 
   useEffect(() => {
     getEntry(soundProjectID).then((retrievedProjectData) => {
@@ -186,12 +182,13 @@ export default function ProjectPage(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+
+  // Detect background image and assign text color
   // backgroundTest = document.getElementById("projectBackgroundImg");
   // console.log("background Test", backgroundTest)
   // let rgb = () => {useDetectBackgroundColor(backgroundTest);}
 
   useEffect(() => {
-    // console.log("Second useEffect", entry);
     updateVideoSource();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -199,7 +196,6 @@ export default function ProjectPage(props) {
 
   const handlePlayerReady = (player) => {
     playerRef.current = player;
-    // console.log("HandlePlayerREady Player:", playerRef);
 
     player.on("waiting", () => {
       videojs.log("player is waiting");
@@ -209,12 +205,6 @@ export default function ProjectPage(props) {
       videojs.log("player will dispose");
     });
   };
-
-  // const disposePlayer = (player) => {
-  //   playerRef.current = player;
-
-  //   player.dispose();
-  // };
 
   return (
     <div>
@@ -240,13 +230,13 @@ export default function ProjectPage(props) {
           </BlackTextTypography>
         </Grid>
         <Grid item xs={12} md={8} className={classes.projectField}>
-          {(exists(options)) &&
-            <VideoJS options={options} entry={entry} onReady={handlePlayerReady} />
-          }
-
-          {/* {exists(options) && !entry?.fields?.mediaUrl ? ( */}
-
-          {/* ) : null} */}
+          {exists(options) && (
+            <VideoJS
+              options={options}
+              entry={entry}
+              onReady={handlePlayerReady}
+            />
+          )}
 
           <BoldProjectButton
             onClick={updateVideoSource}
@@ -262,7 +252,6 @@ export default function ProjectPage(props) {
         <Grid item xs={12} md={4} className={classes.projectField}>
           <h3>{entry.fields?.description}</h3>
         </Grid>
-        {/* <Grid item xs={12} className={classes.projectField}></Grid> */}
       </Grid>
     </div>
   );
