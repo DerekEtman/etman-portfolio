@@ -32,7 +32,6 @@ export const VideoJS = (props) => {
       // player.src(options.sources);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-
   }, [options, videoRef]);
 
   useEffect(() => {
