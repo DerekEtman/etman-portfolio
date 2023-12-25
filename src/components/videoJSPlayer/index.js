@@ -6,13 +6,13 @@ import "video.js/dist/video-js.css";
 export const VideoJS = (props) => {
   const videoRef = useRef(null);
   const playerRef = useRef(null);
-  const { options, onReady } = props;
+  const { options, onReady, entry } = props;
 
-  console.log("VideoJS Component - options, onReady", options)
+  console.log("VideoJS Component - options, onReady", props)
+
   
   useEffect(() => {
     // Check if video.js player is the only initialized
-
     if (!playerRef.current) {
       const videoElement = videoRef.current;
 
@@ -44,8 +44,18 @@ export const VideoJS = (props) => {
     }
   },[playerRef])
 
+  
   return(
-    <div data-vjs-player>
+     (entry?.fields?.mediaUrl)
+      ? <iframe
+        src={`https://drive.google.com/file/d/${entry?.fields?.mediaUrl}/preview`}
+        width="100%"
+        height="100%"
+        overflow="auto"
+        allow="autoplay"
+        title="test"
+      ></iframe>
+      : <div data-vjs-player>
         <video ref={videoRef} className='video-js vjs-big-play-centered' id="vid1"/>
     </div>
   )
