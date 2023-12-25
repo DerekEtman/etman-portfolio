@@ -240,23 +240,12 @@ export default function ProjectPage(props) {
           </BlackTextTypography>
         </Grid>
         <Grid item xs={12} md={8} className={classes.projectField}>
-          {exists(options) && entry?.fields?.mediaUrl ? (
-
-              <iframe
-                src={`https://drive.google.com/file/d/${entry?.fields?.mediaUrl}/preview`}
-                width="100%"
-                height="100%"
-                overflow="auto"
-                allow="autoplay"
-                title="test"
-              ></iframe>
-            
-          ) : (
-            <></>
-          )}
+          {(exists(options)) &&
+            <VideoJS options={options} entry={entry} onReady={handlePlayerReady} />
+          }
 
           {/* {exists(options) && !entry?.fields?.mediaUrl ? ( */}
-          <VideoJS options={options} onReady={handlePlayerReady} />
+
           {/* ) : null} */}
 
           <BoldProjectButton
