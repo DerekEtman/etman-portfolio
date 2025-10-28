@@ -13,6 +13,7 @@ import memefly_img from "./assets/Memefly_1.png";
 import dont_die_img from "./assets/dont_Die_1.png";
 import ncov_19 from "./assets/ncov19_thumbnail_2.png";
 // import { code_pic } from "./assets/code_pic.jpg";
+import { resumeData } from "../about/resumeData";
 
 const largeProjectData = [
 	{
@@ -164,13 +165,19 @@ const styles = makeStyles({
 	large_project_header:{
 		display:"flex",
 		flexDirection:"flex-start",
+		margin: "0",
 		fontFamily:"'Bebas Neue', cursive",
 		fontSize:"3rem",
 		borderBottom:"4px solid black",
 
 
 	}
-});
+	,
+	large_project_title: {
+		margin: "0",
+		}
+	}
+);
 
 export default function CodePage() {
 	const classes = styles();
@@ -183,9 +190,11 @@ export default function CodePage() {
 						CODE PROJECTS
 					</h1>
 				</Typography>
-				<div className={classes.media_container}>
+				<div className={classes.media_container}/>
+				<div className={classes.media_container}>					
 					<Typography className={classes.large_project_header}>
 						<h3 style={{margin:"0"}}>LARGE PROJECTS</h3>
+						<h3 className={classes.large_project_title}>LARGE PROJECTS</h3>
 					</Typography>
 					<Grid
 						container
@@ -195,7 +204,8 @@ export default function CodePage() {
 						alignItems="center"
 					>
 						<Grid item xs={12} container="true">
-							{largeProjectData.map((project) => {
+							{/* {largeProjectData.map((project) => { */}
+							{resumeData.projects.map((project) => {
 								return (
 									<ProjectCard
 										key={project.id}

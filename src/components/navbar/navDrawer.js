@@ -51,9 +51,9 @@ export default function NavDrawer() {
 				<ListItem button component={Link} to="/">
 					<ListItemText primary="Home" />
 				</ListItem>
-				<ListItem button component={Link} to="/code">
+				{/* <ListItem button component={Link} to="/code">
 					<ListItemText primary="Code Projects" />
-				</ListItem>
+				</ListItem> */}
 			</List>
 			<Divider />
 
