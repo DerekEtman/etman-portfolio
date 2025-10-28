@@ -223,9 +223,9 @@ export default function ProjectPage(props) {
           </BoldProjectButton>
         </Grid>
 
-        <Grid item xs={12} md={4} className={classes.projectField}>
+        {/* <Grid item xs={12} md={4} className={classes.projectField}>
           <h3>{entry.fields?.description}</h3>
-        </Grid>
+        </Grid> */}
         {/* <Grid item xs={12} className={classes.projectField}></Grid> */}
       </Grid>
     </div>

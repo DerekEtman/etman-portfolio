@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, ImageList, makeStyles, Typography } from "@material-ui/core";
+import ProjectPage from "./projectPage";
 
 const useStyles = makeStyles((theme) => ({
   container1: {
@@ -27,7 +28,10 @@ export default function SoundPage() {
 
   return (
     <Grid container className={classes.container1}>
-      <Grid item xs={2} />
+      <Grid item xs={12} className={classes.textWrapper}>
+        <ProjectPage />
+      </Grid>
+      {/* <Grid item xs={2} />
       <Grid item xs={8}>
         <h1>Hand Crafted Tunes</h1>
 
@@ -76,7 +80,7 @@ export default function SoundPage() {
         </div>
       </Grid>
 
-      <Grid item xs={2} />
+      <Grid item xs={2} /> */}
     </Grid>
   );
 }
